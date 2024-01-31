@@ -1,6 +1,6 @@
-module top_module( output one );
+module top_module( output zero );
 
 // Insert your code here
-    assign one = 1'b0;
+    assign zero = 1'b0;
 
 endmodule
