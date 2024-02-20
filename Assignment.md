@@ -5,7 +5,7 @@
  the sign-bit magnitude method, the 1’s complement method and the 2’s complement method.
 
 
- Comparison:
+ Comparison :
  
  |**Sign-Bit Magnitude**|**1's complement**|**2's complement**|
  |---|---|---|
