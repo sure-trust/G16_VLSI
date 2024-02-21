@@ -1,10 +1,10 @@
 module top_module (
-    input [3:0]clk,
-    input [1:0]reset,
-    input [1:0]enable,
+    input clk,
+    input reset,
+    input enable,
     output [3:0] Q,
-    output c_enable,//enables the clock when the reset pin goes to high state
-    output c_load,//c load takes 1 bit to load the c_d
+    output c_enable,
+    output c_load,
     output [3:0] c_d
   ); //
   wire [3:0] Q_tmp;
