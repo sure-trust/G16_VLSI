@@ -1,4 +1,4 @@
-module async_fifo_TB;
+module async_fifo_TestBench;
 
   parameter DATA_WIDTH = 8;
 
@@ -10,14 +10,15 @@ module async_fifo_TB;
   reg rd_en, rdclk, rdrst_n;
   reg [DATA_WIDTH-1:0] wrdata_q[$], wrdata;
   
-  asynchronous_fifo as_fifo (wrclk, wrrst_n,rdclk, rdrst_n,wr_en,rd_en,data_in,data_out,fifo_full,fifo_empty);
+  asynchronous_fifo a_fifo (wrclk, wrrst_n,rdclk, rdrst_n,wr_en,rd_en,data_in,data_out,fifo_full,fifo_empty);
   always #10ns wrclk = ~wrclk;
   always #35ns rdclk = ~rdclk;
   initial begin
-    wrclk = 1'b0; wrrst_n = 1'b0;
+    wrclk = 1'b0; 
+    wrrst_n = 1'b0;
     wr_en = 1'b0;
     data_in = 0;
-    repeat(10) @(posedge wclk);
+    repeat(10) @(posedge wrclk);
     wrrst_n = 1'b1;
     repeat(2) begin
       for (int i=0; i<30; i++) begin
@@ -33,7 +34,8 @@ module async_fifo_TB;
   end
 
   initial begin
-    rdclk = 1'b0; rdrst_n = 1'b0;
+    rdclk = 1'b0; 
+    rdrst_n = 1'b0;
     rd_en = 1'b0;
 
     repeat(20) @(posedge rdclk);
@@ -56,6 +58,7 @@ module async_fifo_TB;
   end
   
   initial begin 
-    $dumpfile("dump.vcd"); $dumpvars;
+    $dumpfile("dump.vcd"); 
+    $dumpvars;
   end
 endmodule
