@@ -1,113 +1,38 @@
-module Asynchronous_fifo (
-    input wire wr_clk,        // Write clock (200MHz)
-    input wire wr_en,         // Write enable signal
-    input wire [7:0] wr_data, // Write data (8-bit)
-    input wire wr_rst,        // Write reset signal (active high)
-    input wire rd_clk,        // Read clock (50MHz)
-    input wire rd_en,         // Read enable signal
-    output reg [7:0] rd_data, // Read data (8-bit)
-    input wire rd_rst,        // Read reset signal (active high)
+`include "synchronizer.v"
+`include "write_handler.v"
+`include "read_handler.v"
+`include "memory.v"
+// Code your design here
+module Asynchronous_FIFO
+#(
+  parameter DATASIZE = 8,
+  parameter DEPTH = 16
+ )
+(
+    input wr_clk,        // Write clock (200MHz)
+    input wr_rst,        // Write reset signal (active high)
+    input rd_clk,        // Read clock (50MHz)
+    input rd_rst,        // Read reset signal (active high)
+    input wr_en,         // Write enable signal
+    input rd_en,         // Read enable signal
+    input [DATASIZE-1:0] wr_data, // Write data (8-bit)
+    output reg [DATASIZE-1:0] rd_data, // Read data (8-bit)
     output reg o_fifo_full,   // FIFO full status output
     output reg o_fifo_empty   // FIFO empty status output
 );
+  parameter ADDRSIZE = $clog2(DEPTH);
 
-// Parameters
-parameter DEPTH = 90; // Depth of the FIFO
+  wire [ADDRSIZE-1:0] wr_addr, rd_addr;
+  reg [ADDRSIZE:0] wr_ptr, rd_ptr, wq2_rptr, rq2_wptr;
 
-// Internal signals
-reg [7:0] mem [0:DEPTH-1]; // FIFO memory
-reg [6:0] wr_addr, rd_addr;  // Write and read address
-reg [6:0] wr_ptr, rd_ptr; // Write and read pointers
-reg [6:0] wq2_rptr, rq2_wptr; // Synchronized Write and read pointers
-reg [6:0] temp_wr_ptr, temp_rd_ptr; //temporary Write and read pointers
-
-//Synchronization of read pointers
-always@(posedge wr_clk) begin
-    if(wr_rst) begin
-      wq2_rptr <= 0;
-    end
-    else begin
-      temp_rd_ptr <= rd_ptr;
-      wq2_rptr <= temp_rd_ptr;
-    end
-  end
-
-//Synchronization of write pointers
-always@(posedge rd_clk) begin
-    if(rd_rst) begin
-      rq2_wptr <= 0;
-    end
-    else begin
-       temp_wr_ptr<= wr_ptr;
-      wq2_rptr <= temp_wr_ptr;
-    end
-  end
-
-// Write process
-always @(posedge wr_clk or posedge wr_rst) begin
-    if (wr_rst) begin
-        wr_ptr <= 0;
-    end else if (wr_en && !o_fifo_full) begin
-        mem[wr_addr] <= wr_data;
-    end
-end
-
-// Read process
-always @(posedge rd_clk or posedge rd_rst) begin
-    if (rd_rst) begin
-        rd_ptr <= 0;
-    end else if (rd_en && !o_fifo_empty) begin
-        rd_data <= mem[rd_addr];
-    end
-end
-
-// Write pointer handler
-  wire [6:0] waddr_next;
-  wire [6:0] wptr_next;
+  synchronizer #(ADDRSIZE) Write_pointer (rd_clk, rd_rst, wr_prt, rq2_wptr);
   
-  assign waddr_next = wr_addr+(wr_en & !o_fifo_full);
-  assign wptr_next = (waddr_next >>1)^waddr_next; //binary to gray conversion
+  synchronizer #(ADDRSIZE) read_pointer (wr_clk, wr_rst, rd_prt, wq2_rptr);
   
-  always@(posedge wr_clk, wr_rst) begin
-    if(wr_rst) begin
-      wr_addr <= 0; // set default value
-      wr_ptr <= 0;
-    end
-    else begin
-      wr_addr <= waddr_next;
-      wr_ptr <= wptr_next;
-    end
-  end
-
-// Read pointer handler
-
-  wire [6:0] raddr_next;
-  wire [6:0] rptr_next;
-
-  assign raddr_next = rd_addr+(rd_en & !o_fifo_empty);
-  assign rptr_next = (raddr_next >>1)^raddr_next;//binary to gray conversion
+  write_handler #(ADDRSIZE)(wr_clk, wr_rst, wr_en, wq2_rptr, wr_addr, wr_ptr, o_fifo_full);
   
-  always@(posedge rd_clk , rd_rst) begin
-    if(rd_rst) begin
-      rd_addr <= 0;
-      rd_ptr <= 0;
-    end
-    else begin
-      rd_addr <= raddr_next;
-      rd_ptr <= rptr_next;
-    end
-  end
+  read_handler #(ADDRSIZE) (rd_clk, rd_rst, rd_en, rq2_wptr, rd_addr, rd_ptr, o_fifo_empty);
+    
+  memory fifomem (wr_clk, wr_en, rd_clk, rd_en, wr_addr, rd_addr, wr_data, o_fifo_full, o_fifo_empty, rd_data);
   
-//Empty FIFO logic 
-  always@(posedge rd_clk ,rd_rst) begin
-    if(rd_rst) o_fifo_empty <= 1;
-    else        o_fifo_empty <= (rq2_wptr == rptr_next);
-  end
-
-//Full FIFO logic 
-  always@(posedge wr_clk , wr_rst) begin
-    if(wr_rst) o_fifo_full <= 0;
-    else       o_fifo_full <= (wptr_next == {~wq2_rptr[6:5], wq2_rptr[4:0]});
-  end
-
 endmodule
