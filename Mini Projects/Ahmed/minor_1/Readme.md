@@ -5,5 +5,5 @@ This HDLBit Solution Repository is a compilation of my implementations and solut
 #### Directory Structure
 
 <p align="center">
-  ![](<Screenshot 2024-03-20 173453.png>)
+  <img src="Screenshot 2024-03-20 173453.png">
 </p>
