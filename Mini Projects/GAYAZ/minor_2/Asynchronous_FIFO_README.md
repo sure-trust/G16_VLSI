@@ -33,7 +33,7 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 # FIFO Structure
 
-![FIFO](https://github.com/GayazPatan/Images/assets/156210984/35766ad7-9966-4cc5-bd0e-3d7a467258ca.png | width=100) 
+![FIFO](https://github.com/GayazPatan/Images/assets/156210984/35766ad7-9966-4cc5-bd0e-3d7a467258ca.png) 
 
 # Architecture
 
