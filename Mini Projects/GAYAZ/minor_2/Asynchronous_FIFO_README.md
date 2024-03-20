@@ -3,7 +3,7 @@ in this design all parts are desgin in different module. Here have two sunchroni
 And the testbench is written in system verilog.
 and also in verilog
 
-# contents
+# Contents
  * Introduction 
 
  * FIFO structure
