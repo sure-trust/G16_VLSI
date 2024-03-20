@@ -46,12 +46,12 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 # Asynchronous FIFO Pointers
 
 
-Write Pointer:
+#### Write Pointer:
 
 
 The write pointer always points to the next word to be written; therefore, on reset, both pointers are set to zero, which also happens to be the next FIFO word location to be written
 
-Read Pointer:
+#### Read Pointer:
 
 The read pointer always points to the current FIFO word to be read. The fact that the read pointer is always pointing to the next FIFO word to be read means that the receiver logic does not have to use two clock periods to read the data word.
 
