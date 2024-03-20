@@ -48,9 +48,17 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 Write Pointer:
 
+<p align = "center">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/dbcfb805-3cc7-4883-92c6-56e96ffca8d4" width="720px" Height="auto">
+</p>
+
 The write pointer always points to the next word to be written; therefore, on reset, both pointers are set to zero, which also happens to be the next FIFO word location to be written
 
 Read Pointer:
+
+<p align = "center">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/7440b741-fe06-4e1e-850d-fef906336026" width="720px" Height="auto">
+</p>
 
 The read pointer always points to the current FIFO word to be read. The fact that the read pointer is always pointing to the next FIFO word to be read means that the receiver logic does not have to use two clock periods to read the data word.
 
@@ -89,7 +97,13 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 ![image](https://github.com/GayazPatan/Images/assets/156210984/12cb159b-a8aa-4b02-8f0e-c62fbfce136e.png)
 
 
-# Output & simulation waveform-
+# OUTPUT
+
+<p align ="center">
+<img src=" https://github.com/GayazPatan/Images/assets/156210984/97772db0-c584-4264-b249-2c69a513eaa6.png" width="720" height="320" />
+
+
+# simulation waveform-
 
 
 ![output](https://github.com/GayazPatan/Images/assets/156210984/2c8c221b-d20d-497c-b7f9-25a25ef88b99.png)
