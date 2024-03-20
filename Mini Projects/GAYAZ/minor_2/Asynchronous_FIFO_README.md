@@ -72,10 +72,18 @@ Synchronizers are very simple in operation; they are made of 2 D Flip Flop’s.A
 
 The Figure below shows how synchronization takes place; the logic behind this is very simple
 
+#### Write Pointer Synchronization
+
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/d02a695b-dbc0-4d87-83f3-021c8ec0e099" width="720px" Height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/b608aee3-2c25-4c72-b1ca-b6026bd25295" width="720px" Height="auto">
 </p>
-   
+
+####  Read Pointer Synchronization
+
+<p align = "center">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/f4e2b9ae-fb3d-4f4d-9bd7-cd198cbfd3b0" width="720px" Height="auto">
+</p>
+
 
 We need to design a counter which can give Binary and Gray output’s, the need for Binary counter is to address the FIFO MEMORY i.e. Write and Read address. And the need of Gray counter is for addressing Read and Write pointers.
 
