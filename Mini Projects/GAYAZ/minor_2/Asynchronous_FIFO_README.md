@@ -91,8 +91,9 @@ We need to design a counter which can give Binary and Gray output’s, the need 
 # Full & Empty Logic Block
 
 When the status counter reaches the maximum FIFO depth it will assert FIFO full signal and when its value is zero it will assert FIFO empty signal
-
-![image](https://github.com/GayazPatan/Images/assets/156210984/12cb159b-a8aa-4b02-8f0e-c62fbfce136e.png)
+<p align = "center">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/f5a0694f-4655-4f40-8ed7-156d0ac791c8" width="720px" Height="auto">
+</p>
 
 
 # OUTPUT
