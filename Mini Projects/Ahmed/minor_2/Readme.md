@@ -29,7 +29,7 @@ An Asynchronous FIFO (First-In, First-Out) is a type of digital circuit used in 
 ### Block Diagram
 
 <p align="center">
-  <img src="">
+  ![Screenshot 2024-03-15 160750](https://github.com/Razi-720/Hdlbits_Solution/assets/145758591/998b5fdc-ba77-41ec-89b7-1fc9352c36d0)
 </p>
 
 ### Directory structure
@@ -46,12 +46,12 @@ An Asynchronous FIFO (First-In, First-Out) is a type of digital circuit used in 
 
 - **README.md**- This markdown file has the project report.
 - **Asynchronous_FIFO.v**- This is the top module, This has instantiation of `memory.v` `read_handler.v` `synchronizer_rptr.v` `synchronizer_wptr.v` `write_handler.v`.
-- **Asynchronous_FIFO_TB.v**- This is the verilog file to test the FIFO.
-- **memory.v**- This memory array use to temporarly store the data.
-- **synchronizer_rptr.v**- They are made of 2 D Flip Flop’s.As the FIFO is operating at 2 different clock domains so there is a need to synchronize the Read pointer.
-- **synchronizer_wptr.v**- They are made of 2 D Flip Flop’s.As the FIFO is operating at 2 different clock domains so there is a need to synchronize the Write pointer.
-- **read_handler.v**- This module is responsible handling of read pointer and generate the fifo empty signal.
-- **write_handler.v**- This module is responsible handling of write pointer and generate the fifo full signal.
+- **Asynchronous_FIFO_TB.v**- This is the Verilog file to test the FIFO.
+- **memory.v**- This memory array is used to temporarily store the data.
+- **synchronizer_rptr.v**- They are made of 2 D Flip Flop’s. As the FIFO is operating at 2 different clock domains there is a need to synchronize the Read pointer.
+- **synchronizer_wptr.v**- They are made of 2 D Flip Flop’s. As the FIFO is operating at 2 different clock domains there is a need to synchronize the Write pointer.
+- **read_handler.v**- This module is responsible for handling of read pointer and generating the FIFO empty signal.
+- **write_handler.v**- This module handles the write pointer and generates the FIFO full signal.
 
 -Logic for FIFO full & empty signals
     When the status counter reaches the maximum FIFO depth it will assert FIFO full signal and when its value is zero it will assert FIFO empty signal
@@ -62,11 +62,11 @@ An Asynchronous FIFO (First-In, First-Out) is a type of digital circuit used in 
 
 ### Schematic diagram
 <p align="center">
-  <img src="">
+  ![Screenshot 2024-03-20 031804](https://github.com/Razi-720/Hdlbits_Solution/assets/145758591/fc00bea9-c839-461a-a858-fd2dd6d76132)
 </p>
 
 ### Simulation Waveform-
 
 <p align="center">
-  <img src="">
+  ![Screenshot 2024-03-20 021412](https://github.com/Razi-720/Hdlbits_Solution/assets/145758591/40b77272-d069-471b-ab02-25dc518d35cf)
 </p>
