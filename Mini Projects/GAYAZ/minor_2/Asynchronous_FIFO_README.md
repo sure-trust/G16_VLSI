@@ -58,7 +58,7 @@ The read pointer always points to the current FIFO word to be read. The fact tha
 Synchroniser using two flip flop
 
 
-![image](https://user-images.githubusercontent.com/72481400/111077754-49468600-8518-11eb-9bfd-87d57d6dcd14.png)
+![image](https://github.com/GayazPatan/Images/assets/156210984/10ff28ce-12da-469b-9444-8c2b2b0d4baf.png)
 
 
 
@@ -70,9 +70,9 @@ Synchronizers are very simple in operation; they are made of 2 D Flip Flop’s.A
 
 The Figure below shows how synchronization takes place; the logic behind this is very simple
 
-![image](https://user-images.githubusercontent.com/72481400/114535966-3dacc300-9c6e-11eb-9097-12b84d2a061f.png)
+![image](https://github.com/GayazPatan/Images/assets/156210984/aef2bd59-1959-46e1-90f6-ac334679d6c5.png)
 
-![image](https://user-images.githubusercontent.com/72481400/114535982-430a0d80-9c6e-11eb-8aa4-e6f910819907.png)
+![image](https://github.com/GayazPatan/Images/assets/156210984/e77604b5-5f80-4e1f-844e-64063126eeb8.png)
 
 We need to design a counter which can give Binary and Gray output’s, the need for Binary counter is to address the FIFO MEMORY i.e. Write and Read address. And the need of Gray counter is for addressing Read and Write pointers.
 
