@@ -1,38 +1,32 @@
-`include "synchronizer.v"
-`include "write_handler.v"
 `include "read_handler.v"
+`include "write_handler.v"
 `include "memory.v"
-// Code your design here
+`include "synchronizer_rptr.v"
+`include "synchronizer_wptr.v"
+// Top level wrapper
+//
 module Asynchronous_FIFO
 #(
-  parameter DATASIZE = 8,
-  parameter DEPTH = 16
+  parameter DSIZE = 8,
+  parameter ASIZE = 4
  )
 (
-    input wr_clk,        // Write clock (200MHz)
-    input wr_rst,        // Write reset signal (active high)
-    input rd_clk,        // Read clock (50MHz)
-    input rd_rst,        // Read reset signal (active high)
-    input wr_en,         // Write enable signal
-    input rd_en,         // Read enable signal
-    input [DATASIZE-1:0] wr_data, // Write data (8-bit)
-    output reg [DATASIZE-1:0] rd_data, // Read data (8-bit)
-    output reg o_fifo_full,   // FIFO full status output
-    output reg o_fifo_empty   // FIFO empty status output
+  input   wr_en, wr_clk, wr_rst,//wr_en write enable signal
+  input   rd_en, rd_clk, rd_rst,//rd_en read enable signal
+  input   [DSIZE-1:0] wr_data,
+
+  output  [DSIZE-1:0] rd_data,
+  output  o_fifo_full,
+  output  o_fifo_empty
 );
-  parameter ADDRSIZE = $clog2(DEPTH);
 
-  wire [ADDRSIZE-1:0] wr_addr, rd_addr;
-  reg [ADDRSIZE:0] wr_ptr, rd_ptr, wq2_rptr, rq2_wptr;
+  wire [ASIZE-1:0] waddr, raddr;
+  wire [ASIZE:0] wptr, rptr, wq2_rptr, rq2_wptr;
 
-  synchronizer #(ADDRSIZE) Write_pointer (rd_clk, rd_rst, wr_prt, rq2_wptr);
-  
-  synchronizer #(ADDRSIZE) read_pointer (wr_clk, wr_rst, rd_prt, wq2_rptr);
-  
-  write_handler #(ADDRSIZE)(wr_clk, wr_rst, wr_en, wq2_rptr, wr_addr, wr_ptr, o_fifo_full);
-  
-  read_handler #(ADDRSIZE) (rd_clk, rd_rst, rd_en, rq2_wptr, rd_addr, rd_ptr, o_fifo_empty);
-    
-  memory fifomem (wr_clk, wr_en, rd_clk, rd_en, wr_addr, rd_addr, wr_data, o_fifo_full, o_fifo_empty, rd_data);
-  
+  synchronizer_rptr (wr_clk, wr_rst, rptr, wq2_rptr);
+  synchronizer_wptr (rd_clk, rd_rst, wptr, rq2_wptr);
+  memory #(DSIZE, ASIZE) FIFO_Memory (wr_en, o_fifo_full, wr_clk, waddr, raddr, wr_data, rd_data);
+  read_handler #(ASIZE) Read_handler (rd_en, rd_clk, rd_rst, rq2_wptr, o_fifo_empty, raddr, rptr);
+  write_handler #(ASIZE) Write_handler (wr_en, wr_clk, wr_rst, wq2_rptr, o_fifo_full, waddr, wptr);
+
 endmodule

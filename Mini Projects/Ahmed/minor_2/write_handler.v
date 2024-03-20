@@ -1,41 +1,37 @@
-module write_handler#(
-  parameter ADDRSIZE = 6
+module wptr_full
+#(
+  parameter ADDRSIZE = 4
 )
 (
-  input   wr_clk, wr_rst, wr_en, 
+  input   wr_en, wr_clk, wr_rst,
   input   [ADDRSIZE :0] wq2_rptr,
-  output reg [ADDRSIZE:0] wr_addr, wr_ptr,
-  output reg  wr_full
+  output reg  wfull,
+  output  [ADDRSIZE-1:0] wr_addr,
+  output reg [ADDRSIZE :0] wptr
 );
 
-  wire [ADDRSIZE:0] wr_graynext, wr_binnext;
-  reg wrap_around;
-  wire wr_full_val;
+   reg [ADDRSIZE:0] wbin;
+  wire [ADDRSIZE:0] wgraynext, wbinnext;
 
-  // Memory write-address pointer
-  //assign wr_addr = wr_bin[ADDRSIZE-1:0];
-  assign wr_binnext = wr_addr + (wr_en & ~wr_full);
-  assign wr_graynext = (wr_binnext>>1) ^ wr_binnext;// binary to gray conversion
-
-  // Next Pointer State;
-  always @(posedge wr_clk or negedge wr_rst) begin
-    if (!wr_rst)begin
-      wr_addr<= 0;
-      wr_ptr <= 0;
-      end
-    else begin
-      wr_addr <= wr_binnext; 
-      wr_ptr <= wr_graynext; 
-    end
-  end
-
-//Logic for FIFO full
-  assign wr_full_val = (wr_graynext=={~wq2_rptr[ADDRSIZE:ADDRSIZE-1], wq2_rptr[ADDRSIZE-2:0]});
-
-  always @(posedge wr_clk or negedge wr_rst)
-    if (!wr_rst)
-      wr_full <= 1'b0;
+  // GRAYSTYLE2 pointer
+  always @(posedge wr_clk or posedge wr_rst)
+    if (wr_rst)
+      {wbin, wptr} <= 0;
     else
-      wr_full <= wr_full_val;
+      {wbin, wptr} <= {wbinnext, wgraynext};
+
+  // Memory write-address pointer (okay to use binary to address memory)
+  assign wr_addr = wbin[ADDRSIZE-1:0];
+  assign wbinnext = wbin + (wr_en & ~wfull);
+  assign wgraynext = (wbinnext>>1) ^ wbinnext;
+
+
+  assign wfull_val = (wgraynext=={~wq2_rptr[ADDRSIZE:ADDRSIZE-1], wq2_rptr[ADDRSIZE-2:0]});
+
+  always @(posedge wr_clk or posedge wr_rst)
+    if (wr_rst)
+      wfull <= 1'b0;
+    else
+      wfull <= wfull_val;
 
 endmodule

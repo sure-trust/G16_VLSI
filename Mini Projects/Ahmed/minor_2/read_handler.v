@@ -1,38 +1,36 @@
-module read_handler
+module rptr_empty
 #(
-  parameter ADDRSIZE = 6
+  parameter ADDRSIZE = 4
 )
 (
-  input   rd_clk, rd_rst, rd_en, 
+  input   rd_en, rd_clk, rd_rst,
   input   [ADDRSIZE :0] rq2_wptr,
-  output reg [ADDRSIZE:0] rd_addr, rd_ptr,
-  output reg  rd_empty
+  output reg  rempty,
+  output  [ADDRSIZE-1:0] raddr,
+  output reg [ADDRSIZE :0] rptr
 );
 
-  wire [ADDRSIZE:0] rd_graynext, rd_binnext;
-
-  // Memory read-address pointer
-  
-  assign b_rptr_next = rd_addr+(rd_en & !rd_empty);
-  assign rd_graynext = (rd_binnext>>1) ^ rd_binnext;
-  assign rd_empty_val = (rd_graynext == rq2_wptr);
- 
-  always @(posedge rd_clk or negedge rd_rst) begin
-    if (!rd_rst) begin
-      rd_addr <= 0;
-      rd_ptr <= 0;
-      end
-  	 else begin
-      rd_addr <= rd_binnext;
-      rd_ptr <= rd_graynext;
-    end
-  end
+  reg [ADDRSIZE:0] rbin;
+  wire [ADDRSIZE:0] rgraynext, rbinnext;
 
 
-  always @(posedge rd_clk or negedge rd_rst)
-    if (!rd_rst)
-      rd_empty <= 1'b1;
+  always @(posedge rd_clk or posedge rd_rst)
+    if (rd_rst)
+      {rbin, rptr} <= 0;
     else
-      rd_empty <= rd_empty_val;
+      {rbin, rptr} <= {rbinnext, rgraynext};
+
+  // Memory read-address pointer (okay to use binary to address memory)
+  assign raddr = rbin[ADDRSIZE-1:0];
+  assign rbinnext = rbin + (rd_en & ~rempty);
+  assign rgraynext = (rbinnext>>1) ^ rbinnext;
+
+  assign rempty_val = (rgraynext == rq2_wptr);
+
+  always @(posedge rd_clk or posedge rd_rst)
+    if (rd_rst)
+      rempty <= 1'b1;
+    else
+      rempty <= rempty_val;
 
 endmodule
