@@ -19,6 +19,6 @@ Design specifications
  1. o_fifo_full: goes high when FIFO is full. No more data writes are possible in that case.
  2. o_fifo_empty: goes high when FIFO is empty. No more data reads are possible in that case
  
- <image src = screenshot(775).png>
- <image src = screenshot(774).png>
- <image src = fifo_image.png>
+ <image src = "screenshot(775).png">
+ <image src = "screenshot(774).png">
+ <image src = "fifo_image.png">
