@@ -38,7 +38,7 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 # Architecture
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 
 
