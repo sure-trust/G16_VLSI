@@ -73,7 +73,11 @@ The Figure below shows how synchronization takes place; the logic behind this is
 
 <p align ="center">
 <img src="https://github.com/GayazPatan/Images/assets/156210984/aef2bd59-1959-46e1-90f6-ac334679d6c5.png" width="400" height="200" />
-![image](https://github.com/GayazPatan/Images/assets/156210984/e77604b5-5f80-4e1f-844e-64063126eeb8.png)
+
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/e77604b5-5f80-4e1f-844e-64063126eeb8.png" width="400" height="200" />
+
+
 
 We need to design a counter which can give Binary and Gray output’s, the need for Binary counter is to address the FIFO MEMORY i.e. Write and Read address. And the need of Gray counter is for addressing Read and Write pointers.
 
