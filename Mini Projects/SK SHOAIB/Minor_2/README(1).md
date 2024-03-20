@@ -28,7 +28,7 @@ Design an asynchronous FIFO with the following specifications.
 ### Reference Diagram
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/30dad3de-996e-47a7-bad7-e995c79ed501">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/30dad3de-996e-47a7-bad7-e995c79ed501" width="400">
 </p>
 
 
@@ -53,19 +53,19 @@ Design an asynchronous FIFO with the following specifications.
 ### Assumed diagram
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/022f1615-222e-4db4-bbf7-07aa845d82fa">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/022f1615-222e-4db4-bbf7-07aa845d82fa" width="400">
 </p>
 
 ### Depth Calculation
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/1453c257-237f-4566-b0f8-24f4180ab6c8">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/1453c257-237f-4566-b0f8-24f4180ab6c8" width="400">
 </p>
 
 ### Assumed Architecture
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/fabfb151-6ead-4608-9eb4-01de945e9f7a">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/fabfb151-6ead-4608-9eb4-01de945e9f7a" width="400">
 </p>
 
 
@@ -73,7 +73,7 @@ Design an asynchronous FIFO with the following specifications.
 - In asynchronous FIFO, data read and write operations use different clock frequencies. Since write and read clocks are not synchronized, it is referred to as asynchronous FIFO. Usually, these are used in systems where data need to pass from one clock domain to another which is generally termed as ‘clock domain crossing’. Thus, asynchronous FIFO helps to synchronize data flow between two systems working on different clocks.
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/19bc71ee-c600-4f30-be68-a04f799ff27e">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/19bc71ee-c600-4f30-be68-a04f799ff27e" width="400">
 </p>
 
 
@@ -84,7 +84,7 @@ Design an asynchronous FIFO with the following specifications.
 ## Dual Flop Synchronizer:
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/7c603e0a-7822-402d-a61d-19d4b5565179">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/7c603e0a-7822-402d-a61d-19d4b5565179" width="400">
 </p>
 
 
@@ -108,7 +108,7 @@ Design an asynchronous FIFO with the following specifications.
 # Waveforms
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/484e3fea-4ba6-471e-84cf-a6c0c2557836">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/484e3fea-4ba6-471e-84cf-a6c0c2557836" width="400">
 </p>
 
 
