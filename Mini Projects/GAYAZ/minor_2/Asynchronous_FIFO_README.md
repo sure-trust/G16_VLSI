@@ -86,7 +86,7 @@ We need to design a counter which can give Binary and Gray output’s, the need 
 
 When the status counter reaches the maximum FIFO depth it will assert FIFO full signal and when its value is zero it will assert FIFO empty signal
 
-![image](https://github.com/GayazPatan/Images/assets/156210984/630b2194-fc49-4790-91a7-694893bf56ea0.png)
+![image](https://github.com/GayazPatan/Images/assets/156210984/12cb159b-a8aa-4b02-8f0e-c62fbfce136e.png)
 
 
 # Output & simulation waveform-
