@@ -22,16 +22,16 @@ module Fifo_Top_tb();
     // Clock generation
     always begin
         wr_clk = 1'b0;
-        #5; 
+        #1; 
         wr_clk = 1'b1;
-        #5; 
+        #1; 
     end
 
     always begin
         rd_clk = 1'b0;
-        #7; 
+        #1; 
         rd_clk = 1'b1;
-        #7; 
+        #1; 
     end
 
     initial begin
@@ -39,7 +39,7 @@ module Fifo_Top_tb();
         rd_rst = 1'b1;
         wr_en = 1'b0;
         rd_en = 1'b0;
-        wr_data = 8'h00;
+        wr_data = 8'hA0;
 
         #20;
         wr_rst = 1'b0;
@@ -57,6 +57,9 @@ module Fifo_Top_tb();
         rd_en = 1'b1;
         #40;
         rd_en = 1'b0;
+    end
+    initial begin
+   	 $monitor("o_fifo_full=%0d, o_fifo_empty=%0d, wr_data=%0d, rd_data=%0d, wr_en=%0d,rd_en=%0d,",o_fifo_full,o_fifo_empty,wr_data,rd_data,wr_en,rd_en);        		 
     end
     initial begin
         $dumpfile ("dump.vcd");
