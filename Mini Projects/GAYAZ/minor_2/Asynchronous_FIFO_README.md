@@ -71,7 +71,7 @@ Synchronizers are very simple in operation; they are made of 2 D Flip Flop’s.A
 
 The Figure below shows how synchronization takes place; the logic behind this is very simple
 
-![image](https://github.com/GayazPatan/Images/assets/156210984/aef2bd59-1959-46e1-90f6-ac334679d6c5.png)
+<img src="https://github.com/GayazPatan/Images/assets/156210984/aef2bd59-1959-46e1-90f6-ac334679d6c5.png" width="400" height="200" />.png
 
 ![image](https://github.com/GayazPatan/Images/assets/156210984/e77604b5-5f80-4e1f-844e-64063126eeb8.png)
 
