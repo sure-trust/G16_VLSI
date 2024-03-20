@@ -77,13 +77,13 @@ The Figure below shows how synchronization takes place; the logic behind this is
 #### Write Pointer Synchronization
 
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/b608aee3-2c25-4c72-b1ca-b6026bd25295" width="720px" Height="auto">
+  <img src="https://github.com/GayazPatan/Images/assets/156210984/bf6a44c2-e24e-49a1-bdfe-01859cf23bf6" width="720px" Height="auto">
 </p>
 
 ####  Read Pointer Synchronization
 
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/f4e2b9ae-fb3d-4f4d-9bd7-cd198cbfd3b0" width="720px" Height="auto">
+  <img src="https://github.com/GayazPatan/Images/assets/156210984/1770ee64-bcb7-41fb-8775-a1f338e72aa8" width="720px" Height="auto">
 </p>
 
 
@@ -94,7 +94,7 @@ We need to design a counter which can give Binary and Gray output’s, the need 
 
 When the status counter reaches the maximum FIFO depth it will assert FIFO full signal and when its value is zero it will assert FIFO empty signal
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/f5a0694f-4655-4f40-8ed7-156d0ac791c8" width="720px" Height="auto">
+  <img src="https://github.com/GayazPatan/Images/assets/156210984/e0dbd3b9-bbe2-4717-86ba-2868309d819d" width="720px" Height="auto">
 </p>
 
 
