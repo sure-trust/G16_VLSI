@@ -92,7 +92,11 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 
 
-# simulation waveform-
+# Simulation waveform-
 
 
 ![image](https://user-images.githubusercontent.com/72481400/111078289-b0fdd080-851a-11eb-954f-7070e6de9af6.png)
+
+# Description
+
+An asynchronous FIFO refers to a FIFO design where data values are written sequentially into a FIFO buffer using one clock domain, and the data values are sequentially read from the same FIFO buffer using another clock domain, where the two clock domains are asynchronous to each other.
