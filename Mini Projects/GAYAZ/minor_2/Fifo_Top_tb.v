@@ -66,6 +66,9 @@ module Fifo_Top_tb();
       	#20
         rd_en = 1'b0;
     end
+   initial begin
+   	 $monitor("o_fifo_full=%0d, o_fifo_empty=%0d, wr_data=%0d, rd_data=%0d, wr_en=%0d,rd_en=%0d,",o_fifo_full,o_fifo_empty,wr_data,rd_data,wr_en,rd_en);        		 
+    end
     initial begin
         $dumpfile ("dump.vcd");
         $dumpvars ();
