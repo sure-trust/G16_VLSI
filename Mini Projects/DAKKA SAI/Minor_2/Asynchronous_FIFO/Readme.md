@@ -99,4 +99,13 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 # Description
 
-An asynchronous FIFO refers to a FIFO design where data values are written sequentially into a FIFO buffer using one clock domain, and the data values are sequentially read from the same FIFO buffer using another clock domain, where the two clock domains are asynchronous to each other.
+* An asynchronous FIFO refers to a FIFO design where data values are written sequentially into a FIFO buffer using one clock domain, and the data values are sequentially read from the same FIFO buffer using another clock domain, where the two clock domains are asynchronous to each other.
+* Asynchronous FIFO design requires careful attention to details from pointer generation techniques to full and empty
+generation. Ignorance of important details will generally result in a design that is easily verified but is also wrong.
+* Finding FIFO design errors typically requires simulation of a gate-level FIFO design with backannotation of actual
+delays and a whole lot of luck!
+Synchronization of FIFO pointers into the opposite clock domain is safely accomplished using Gray code pointers.
+* Generating the FIFO-full status is perhaps the hardest part of a FIFO design. Dual n-bit Gray code counters are
+valuable to synchronize and n-bit pointer into the opposite clock domain and to use an (n-1)-bit pointer to do “full”
+comparison. Synchronizing binary FIFO pointers using techniques described in section 7.0 is another worthy
+technique to use when doing FIFO design.
