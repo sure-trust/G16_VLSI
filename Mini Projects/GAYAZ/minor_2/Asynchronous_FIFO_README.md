@@ -61,8 +61,8 @@ The read pointer always points to the current FIFO word to be read. The fact tha
 
 Synchroniser using two flip flop
 
-
-![image](https://github.com/GayazPatan/Images/assets/156210984/10ff28ce-12da-469b-9444-8c2b2b0d4baf.png)
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/10ff28ce-12da-469b-9444-8c2b2b0d4baf" width="720px" height=auto />
 
 
 
@@ -106,5 +106,5 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 # simulation waveform-
 
-
-![output](https://github.com/GayazPatan/Images/assets/156210984/2c8c221b-d20d-497c-b7f9-25a25ef88b99.png)
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/2c8c221b-d20d-497c-b7f9-25a25ef88b99" width=720px height=auto />
