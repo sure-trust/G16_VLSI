@@ -1,4 +1,4 @@
-# asynchronous_fifo
+# Asynchronous FIFO
 in this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
 And the testbench is written in system verilog.
 and also in verilog
@@ -81,7 +81,7 @@ We need to design a counter which can give Binary and Gray output’s, the need 
 
 When the status counter reaches the maximum FIFO depth it will assert FIFO full signal and when its value is zero it will assert FIFO empty signal
 
-![image](https://user-images.githubusercontent.com/72481400/114536217-7b115080-9c6e-11eb-90d2-5df89f42e764.png)
+![image](https://github.com/GayazPatan/Images/assets/156210984/630b2194-fc49-4790-91a7-694893bf56ea0.png)
 
 
 # OUTPUTS------
