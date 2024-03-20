@@ -23,8 +23,6 @@ simulation
 
 # Introduction
 FIFO-Every memory in which the data word that is written in first also comes out first when the memory is read is a first-in first-out memory.
-<p align ="center">
-<img src="https://github.com/GayazPatan/Images/assets/156210984/27a2979b-4b68-41c2-ab8c-0745392a6a3a)" width="720" height=auto />
 
 An asynchronous FIFO refers to a FIFO design where data values are written sequentially into a FIFO buffer using one clock domain, and the data values are sequentially read from the same FIFO buffer using another clock domain, where the two clock domains are asynchronous to each other. 
 
@@ -35,16 +33,16 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 # FIFO Structure
 
-<p align = "center">
-  <img src="https://github.com/GayazPatan/Images/assets/156210984/e31b4c35-2af3-4a5a-b7d4-87e821736e6.png" width="720px" Height="auto">
-</p>
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/27a2979b-4b68-41c2-ab8c-0745392a6a3a" width="720px" height=auto />
+
 
 # Architecture
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/bc07e6fd-00cd-4fe3-be89-13fadd46e929" width="720px" height=auto />
 
-![image](https://github.com/GayazPatan/Images/assets/156210984/bc07e6fd-00cd-4fe3-be89-13fadd46e929.png)
-
-
-![image](https://github.com/GayazPatan/Images/assets/156210984/90204fdc-69bb-42fa-a60f-89287a05c52a.png)
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/90204fdc-69bb-42fa-a60f-89287a05c52a" width="720px" height=auto />
 
 
 # Asynchronous FIFO Pointers
