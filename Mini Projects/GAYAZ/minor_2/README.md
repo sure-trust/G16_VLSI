@@ -91,6 +91,7 @@ Handshaking: If the FIFO is not empty, handshaking signals (such as 'read enable
 * Full Detection :</b> Full detection involves checking whether the FIFO has reached its maximum capacity and cannot accept any more data for writing.This is typically done by comparing the read and write pointers. If the write pointer catches up to the read pointer, the FIFO is full.Like empty detection, some FIFO implementations may include a dedicated full flag or status bit that indicates when the FIFO is full.
 
 When the FIFO is detected as empty, appropriate action may be taken, such as preventing further read operations until new data is available. When the FIFO is detected as full, further write operations may be blocked until space becomes available in the FIFO.
+
 Empty and full detection mechanisms ensure that data is managed effectively within the FIFO, preventing underflows and overflows while allowing for efficient data transfer between devices. These mechanisms are essential for the proper functioning of asynchronous FIFOs in digital systems.
 
 <i>
