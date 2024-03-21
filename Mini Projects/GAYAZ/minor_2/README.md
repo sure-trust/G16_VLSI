@@ -67,10 +67,8 @@ The steps involved in the operation of an asynchronous FIFO (First-In-First-Out)
 
 #### Write Operation:
 </i>
-
-<b>
- Data Input:</b> Data is written into the FIFO by the writing device (producer).
-<b> <br> Address Pointer Update: </b> The write address pointer increments to the next available storage location in the FIFO.</br>
+<b> Data Input:</b> Data is written into the FIFO by the writing device (producer).<br>
+<b> Address Pointer Update: </b> The write address pointer increments to the next available storage location in the FIFO.</br>
 <b> Handshaking: </b>If the FIFO is not full, handshaking signals (such as 'write enable') may be used to indicate that data is being written.
 
 <i>
