@@ -120,10 +120,9 @@ Allows processing of Gray code data received by the FIFO.
 It involves logical XOR operations to decode Gray code inputs.
 <i>
 
-  #### Error Handling:
+  #### Handshaking:
 </i>
-Error conditions, such as overflow (writing to a full FIFO) or underflow (reading from an empty FIFO), need to be detected and handled appropriately to ensure data integrity.
-
+Handshaking ensures that both devices are synchronized and ready for data transfer, preventing data loss or corruption. It also allows for flow control, ensuring that data is not overwhelmed or lost due to differences in processing speeds or buffer capacities between devices. Handshaking is crucial in asynchronous communication, where devices may not share a common clock signal and operate independently.
 <i>
 
   # OUTPUT
