@@ -49,6 +49,8 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 
   # ARCHITECTURE
 </i>
+The architecture of an asynchronous FIFO efficiently handles data transfer between devices with varying speeds or asynchronous timing. It includes components like data storage, pointers, control logic, handshaking signals, and status flags. These elements work together to buffer data, manage read and write operations, ensure synchronization, and maintain data integrity. The specific implementation varies based on system requirements and constraints.
+
 <p align ="center">
  <img src="https://github.com/GayazPatan/Images/assets/156210984/bc07e6fd-00cd-4fe3-be89-13fadd46e929" width="720px" height=auto />
 </p>
