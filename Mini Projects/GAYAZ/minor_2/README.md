@@ -37,7 +37,9 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 </p>
 
 <p align ="center">
-<"Block Diagram Of Asynchronous">
+  <b>
+    Block Diagram Of Asynchronous
+  </b>
 </p>
 
 # Architecture
