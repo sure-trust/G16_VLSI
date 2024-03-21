@@ -98,22 +98,21 @@ Empty and full detection mechanisms ensure that data is managed effectively with
 
 <i>
 
-#### Data Transfer:
+  #### Data Transfer:
 </i>
 Data is transferred between the FIFO and the devices connected to it based on the handshaking signals and the status of the FIFO (empty or full).
 <i>
 
-#### Synchronization:
+  #### Synchronization:
 </i>
 Handshaking signals are used to synchronize the write and read operations between devices operating at different clock frequencies or with independent timing domains.Handshaking ensures that both devices are synchronized and ready for data transfer, preventing data loss or corruption. It also allows for flow control, ensuring that data is not overwhelmed or lost due to differences in processing speeds or buffer capacities between devices. Handshaking is crucial in asynchronous communication, where devices may not share a common clock signal and operate independently.
 
 <i>
 
-#### Error Handling:
+  #### Error Handling:
 </i>
 Error conditions, such as overflow (writing to a full FIFO) or underflow (reading from an empty FIFO), need to be detected and handled appropriately to ensure data integrity.
 
-</i>
 
 <i>
 
