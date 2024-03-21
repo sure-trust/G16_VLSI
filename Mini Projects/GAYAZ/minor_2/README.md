@@ -16,7 +16,6 @@ and also in verilog
 
  * Architecture
 
-
  * outputs
 
  * simulation
@@ -58,6 +57,7 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 </p>
 
 <i>
+
   # OUTPUT
 </i>
 <p align ="center">
