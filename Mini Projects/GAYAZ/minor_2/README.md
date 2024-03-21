@@ -36,6 +36,10 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 <img src="https://github.com/GayazPatan/Images/assets/156210984/50a26d94-2a56-4bbc-af55-7268ed62279d" width="720px" height=auto />
 </p>
 
+<p align ="center">
+<"Block Diagram Of Asynchronous">
+</p>
+
 # Architecture
 <p align ="center">
 <img src="https://github.com/GayazPatan/Images/assets/156210984/bc07e6fd-00cd-4fe3-be89-13fadd46e929" width="720px" height=auto />
