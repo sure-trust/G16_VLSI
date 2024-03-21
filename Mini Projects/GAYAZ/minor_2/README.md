@@ -5,29 +5,27 @@
 In this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
 And the testbench is written in system verilog.
 and also in verilog
-
+<b>
 <i>
-  <b>
 
-    # Contents
+# Contents
+ * Introduction 
 
-      * Introduction 
+ * FIFO structure
 
-      * FIFO structure
+ * Architecture
 
-      * Architecture
+ * Asynchronous FIFO Pointers
 
-      * Asynchronous FIFO Pointers
+ * Synchronizers & Binary Gray Counter
 
-      * Synchronizers & Binary Gray Counter
+ * Full & Empty Logic Block
 
-      * Full & Empty Logic Block
+ * outputs
 
-      * outputs
-
-      * simulation
-  </b>    
+ * simulation
 </i>
+</b>
 
 <i>
 
