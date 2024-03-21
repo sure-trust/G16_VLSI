@@ -9,7 +9,7 @@ and also in verilog
 <b>
 <i>
 
-# Contents
+# CONTENTS
  * INTRODUCTION 
 
  * FIFO STRUCTURE
