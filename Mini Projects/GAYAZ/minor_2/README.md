@@ -100,6 +100,11 @@ Empty and full detection mechanisms ensure that data is managed effectively with
   #### Data Transfer:
 </i>
 Data is transferred between the FIFO and the devices connected to it based on the handshaking signals and the status of the FIFO (empty or full).
+
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/919d6a6d-0eca-4927-a4a4-89a76ffa7df5" width="720px" height=auto />
+</p>
+
 <i>
 
   #### Synchronization:
