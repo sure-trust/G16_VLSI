@@ -107,10 +107,19 @@ Data is transferred between the FIFO and the devices connected to it based on th
 
 <i>
 
-  #### Synchronization:
+  #### Binary to Gray & Gray to Binary Conversion:
 </i>
-Handshaking signals are used to synchronize the write and read operations between devices operating at different clock frequencies or with independent timing domains.Handshaking ensures that both devices are synchronized and ready for data transfer, preventing data loss or corruption. It also allows for flow control, ensuring that data is not overwhelmed or lost due to differences in processing speeds or buffer capacities between devices. Handshaking is crucial in asynchronous communication, where devices may not share a common clock signal and operate independently.
-
+<b>Binary to Gray Code Converter:
+</b>
+Transforms binary numbers into Gray code, where adjacent values differ by only one bit.
+Helps mitigate errors during asynchronous data transfer.
+Implemented using logical operations.
+<b>
+Gray Code to Binary Converter:
+</b>
+Converts Gray code back into binary format.
+Allows processing of Gray code data received by the FIFO.
+Typically involves logical operations to decode Gray code inputs.
 <i>
 
   #### Error Handling:
