@@ -65,7 +65,7 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 The steps involved in the operation of an asynchronous FIFO (First-In-First-Out) are as follows:
 <i>
 
-### Write Operation:
+#### Write Operation:
 </i>
 <b> Data Input:</b> Data is written into the FIFO by the writing device (producer).<br/>
 <b> Address Pointer Update: </b> The write address pointer increments to the next available storage location in the FIFO.</br>
