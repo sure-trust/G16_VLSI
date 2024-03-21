@@ -16,12 +16,6 @@ and also in verilog
 
  * Architecture
 
- * Asynchronous FIFO Pointers
-
- * Synchronizers & Binary Gray Counter
-
- * Full & Empty Logic Block
-
  * outputs
 
  * simulation
