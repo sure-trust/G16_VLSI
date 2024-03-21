@@ -41,7 +41,7 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
   # FIFO STRUCTURE
 </i>
 <p align ="center">
-<img src="https://github.com/GayazPatan/Images/assets/156210984/50a26d94-2a56-4bbc-af55-7268ed62279d" width="720px" height=auto />
+<img src="https://github.com/GayazPatan/Images/assets/156210984/70ecbe19-27b3-4ff3-8df0-b89a986f331d" width="720px" height=auto />
 </p>
 
 <p align ="center">
