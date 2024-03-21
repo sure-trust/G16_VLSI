@@ -2,9 +2,11 @@
 
   # Asynchronous FIFO
 </i>
+<p align ="center" >
 In this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
 And the testbench is written in system verilog.
 and also in verilog
+</p>
 <b>
 <i>
 
