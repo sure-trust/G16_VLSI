@@ -41,8 +41,6 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 <p align ="center">
 <img src="https://github.com/GayazPatan/Images/assets/156210984/bc07e6fd-00cd-4fe3-be89-13fadd46e929" width="720px" height=auto />
 
-<p align ="center">
-<img src="https://github.com/GayazPatan/Images/assets/156210984/90204fdc-69bb-42fa-a60f-89287a05c52a" width="720px" height=auto />
 
 
 # Asynchronous FIFO Pointers
