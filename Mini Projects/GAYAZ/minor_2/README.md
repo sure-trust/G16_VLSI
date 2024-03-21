@@ -114,6 +114,7 @@ Data is transferred between the FIFO and the devices connected to it based on th
 Transforms binary numbers into Gray code, where adjacent values differ by only one bit.
 Helps mitigate errors during asynchronous data transfer.
 Implemented using logical operations.
+</br>
 <b>
 Gray Code to Binary Converter:
 </b>
