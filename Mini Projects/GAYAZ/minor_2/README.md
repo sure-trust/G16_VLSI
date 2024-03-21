@@ -1,4 +1,8 @@
+<i>
+
 # Asynchronous FIFO
+
+</i>
 in this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
 And the testbench is written in system verilog.
 and also in verilog
@@ -38,7 +42,7 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 
 <p align ="center">
   <b>
-    Block Diagram Of Asynchronous
+    Block Diagram Of Asynchronous FIFO
   </b>
 </p>
 
