@@ -61,35 +61,42 @@ The operation of an asynchronous FIFO involves careful consideration of timing c
 <i>
 
 # Operation
+</i>
 The steps involved in the operation of an asynchronous FIFO (First-In-First-Out) are as follows:
+<i>
 
 #### Write Operation:
-
+</i>
 Data Input: Data is written into the FIFO by the writing device (producer).
 Address Pointer Update: The write address pointer increments to the next available storage location in the FIFO.
 Handshaking: If the FIFO is not full, handshaking signals (such as 'write enable') may be used to indicate that data is being written.
+<i>
 
 #### Read Operation:
-
+</i>
 Data Output: Data is read from the FIFO by the reading device (consumer).
 Address Pointer Update: The read address pointer increments to the next available data location in the FIFO.
 Handshaking: If the FIFO is not empty, handshaking signals (such as 'read enable') may be used to indicate that data is being read.
+<i>
 
 #### Empty and Full Detection:
-
+</i>
 Empty: The FIFO's status is checked to determine if it contains any data for reading.
 Full: The FIFO's status is checked to determine if it has reached its maximum capacity and cannot accept any more data for writing.
+<i>
 
 #### Data Transfer:
-
+</i>
 Data is transferred between the FIFO and the devices connected to it based on the handshaking signals and the status of the FIFO (empty or full).
+<i>
 
 #### Synchronization:
-
+</i>
 Handshaking signals are used to synchronize the write and read operations between devices operating at different clock frequencies or with independent timing domains.
+<i>
 
 #### Error Handling:
-
+</i>
 Error conditions, such as overflow (writing to a full FIFO) or underflow (reading from an empty FIFO), need to be detected and handled appropriately to ensure data integrity.
 
 </i>
