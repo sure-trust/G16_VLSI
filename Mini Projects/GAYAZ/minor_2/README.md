@@ -86,7 +86,7 @@ Handshaking: If the FIFO is not empty, handshaking signals (such as 'read enable
 
 Empty detection involves checking whether the FIFO has any data available for reading.
 Typically, this is done by comparing the read and write pointers. If they are equal, the FIFO is empty.
-Some FIFO implementations may include a dedicated empty flag or status bit that indicates when the FIFO is empty.<i>
+Some FIFO implementations may include a dedicated empty flag or status bit that indicates when the FIFO is empty.
 
 * Full Detection:
 
@@ -112,7 +112,6 @@ Handshaking signals are used to synchronize the write and read operations betwee
   #### Error Handling:
 </i>
 Error conditions, such as overflow (writing to a full FIFO) or underflow (reading from an empty FIFO), need to be detected and handled appropriately to ensure data integrity.
-
 
 <i>
 
