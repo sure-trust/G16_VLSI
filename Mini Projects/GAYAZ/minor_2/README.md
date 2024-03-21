@@ -113,14 +113,14 @@ Data is transferred between the FIFO and the devices connected to it based on th
 </b>
 Transforms binary numbers into Gray code, where adjacent values differ by only one bit.
 Helps mitigate errors during asynchronous data transfer.
-Implemented using logical operations.
+Implemented using logical XOR operations.
 </br>
 <b>
 Gray Code to Binary Converter:
 </b>
 Converts Gray code back into binary format.
 Allows processing of Gray code data received by the FIFO.
-Typically involves logical operations to decode Gray code inputs.
+It involves logical XOR operations to decode Gray code inputs.
 <i>
 
   #### Error Handling:
