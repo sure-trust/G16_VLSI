@@ -6,23 +6,24 @@ In this design all parts are desgin in different module. Here have two sunchroni
 And the testbench is written in system verilog.
 and also in verilog
 <i>
+  <b>
+    # Contents
+      * Introduction 
 
-# Contents
- * Introduction 
+      * FIFO structure
 
- * FIFO structure
+      * Architecture
 
- * Architecture
+      * Asynchronous FIFO Pointers
 
- * Asynchronous FIFO Pointers
+      * Synchronizers & Binary Gray Counter
 
- * Synchronizers & Binary Gray Counter
+      * Full & Empty Logic Block
 
- * Full & Empty Logic Block
+      * outputs
 
- * outputs
-
- * simulation
+      * simulation
+  </b>    
 </i>
 
 <i>
