@@ -91,6 +91,10 @@ Full Detection :</b> Full detection involves checking whether the FIFO has reach
 <p align ="center">
 <img src="https://github.com/GayazPatan/Images/assets/156210984/bbcd98d4-fb48-4f03-883c-e7880318b5a5" width="720px" height=auto />
 </p>
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/3fa35fb7-d2e9-4b01-b1c8-7fe4f0a669ec" width="720px" height=auto />
+</p>
+
 
 When the FIFO is detected as empty, appropriate action may be taken, such as preventing further read operations until new data is available. When the FIFO is detected as full, further write operations may be blocked until space becomes available in the FIFO.
 
