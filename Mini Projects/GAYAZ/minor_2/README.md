@@ -88,6 +88,10 @@ Empty Detection :</b> Empty detection involves checking whether the FIFO has any
 
 Full Detection :</b> Full detection involves checking whether the FIFO has reached its maximum capacity and cannot accept any more data for writing.This is typically done by comparing the read and write pointers. If the write pointer catches up to the read pointer, the FIFO is full.Like empty detection, some FIFO implementations may include a dedicated full flag or status bit that indicates when the FIFO is full.
 
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/bbcd98d4-fb48-4f03-883c-e7880318b5a5" width="720px" height=auto />
+</p>
+
 When the FIFO is detected as empty, appropriate action may be taken, such as preventing further read operations until new data is available. When the FIFO is detected as full, further write operations may be blocked until space becomes available in the FIFO.
 
 Empty and full detection mechanisms ensure that data is managed effectively within the FIFO, preventing underflows and overflows while allowing for efficient data transfer between devices. These mechanisms are essential for the proper functioning of asynchronous FIFOs in digital systems.
