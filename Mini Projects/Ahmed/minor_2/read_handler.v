@@ -1,6 +1,6 @@
 module rptr_empty
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 7
 )
 (
   input   rd_en, rd_clk, rd_rst,

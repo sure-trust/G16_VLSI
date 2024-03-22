@@ -3,7 +3,7 @@
 //
 module sync_r2w
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 7
 )
 (
   input   wr_clk, wr_rst,

@@ -1,6 +1,6 @@
 module sync_w2r
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 7
 )
 (
   input   rd_clk, rd_rst,

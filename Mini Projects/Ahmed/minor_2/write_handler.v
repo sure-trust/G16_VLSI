@@ -1,6 +1,6 @@
 module wptr_full
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 7
 )
 (
   input   wr_en, wr_clk, wr_rst,

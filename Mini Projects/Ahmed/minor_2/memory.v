@@ -4,7 +4,7 @@
 module fifomem
 #(
   parameter DATASIZE = 8, // Memory data word width
-  parameter ADDRSIZE = 4  // Number of mem address bits
+  parameter ADDRSIZE = 7  // Number of mem address bits
 )
 (
   input   wr_en, wfull, wr_clk,

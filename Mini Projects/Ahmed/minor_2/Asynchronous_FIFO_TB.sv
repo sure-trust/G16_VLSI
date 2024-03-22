@@ -2,7 +2,7 @@
 module Asynchronous_FIFO_TB;
 
 parameter DSIZE = 8;
-parameter ASIZE = 4;
+parameter ASIZE = 7;
 
 wire [DSIZE-1:0] rd_data;
 wire o_fifo_full;
@@ -36,8 +36,8 @@ initial begin
   repeat(5) @(posedge wr_clk);
   wr_rst = 1'b0;
 
-  for (int iter=0; iter<1; iter++) begin
-    for (int i=0; i<32; i++) begin
+  repeat(2) begin
+    for (int i=0; i<200; i++) begin
       @(posedge wr_clk iff !o_fifo_full);
       wr_en = (i%2 == 0)? 1'b1 : 1'b0;
       if (wr_en) begin
@@ -45,7 +45,6 @@ initial begin
         verif_data_q.push_front(wr_data);
       end
     end
-    #1us;
   end
 end
 
@@ -53,11 +52,11 @@ initial begin
   rd_en = 1'b0;
 
   rd_rst = 1'b1;
-  repeat(8) @(posedge rd_clk);
+  repeat(5) @(posedge rd_clk);
   rd_rst = 1'b0;
 
-  for (int iter=0; iter<1; iter++) begin
-    for (int i=0; i<32; i++) begin
+  repeat(4) begin
+    for (int i=0; i<100; i++) begin
       @(posedge rd_clk iff !o_fifo_empty)
       rd_en = (i%2 == 0)? 1'b1 : 1'b0;
       if (rd_en) begin

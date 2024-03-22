@@ -8,7 +8,7 @@
 module Asynchronous_FIFO
 #(
   parameter DSIZE = 8,
-  parameter ASIZE = 4
+  parameter ASIZE = 7
  )
 (
   input   wr_en, wr_clk, wr_rst,//wr_en write enable signal
