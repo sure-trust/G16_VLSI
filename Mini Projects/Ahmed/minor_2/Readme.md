@@ -1,5 +1,5 @@
 
-### Minor Project: Asynchronous FIFO
+# Minor Project: Asynchronous FIFO
 
 This Project involve designing of an asynchronous FIFO with the following specifications.
 
@@ -9,7 +9,7 @@ This Project involve designing of an asynchronous FIFO with the following specif
     - No idle cycles between read and write are involved.
 
 - Write interface:
-    - wr_clk: write clock (200MHz)
+    - wr_clk : write clock (200MHz)
     - wr_en: active high enable signal for the write operation to occur
     - wr_data: 8-bit data coming from the transmitter
     - wr_rst: active high reset signal to reset the write pointer involved, note, you do not reset the contents of the memory.
@@ -25,19 +25,19 @@ This Project involve designing of an asynchronous FIFO with the following specif
     - o_fifo_empty: goes high when FIFO is empty. No more data reads are possible in that case.
 
 
-
-### Asynchronous FIFO
+## Asynchronous FIFO
 An Asynchronous FIFO (First-In, First-Out) is a type of digital circuit used in electronic design to manage data transmission between two asynchronous clock domains. It stores data temporarily, allowing data to be transferred from one clock domain to another without synchronization issues. Unlike synchronous FIFOs, asynchronous FIFOs do not rely on a common clock signal between the input and output sides, making them suitable for interfacing between systems with different clock frequencies or sources.
 
 
-### Block Diagram
+## Block Diagram
 
 <p align="center">
   <img src="Screenshot 2024-03-15 160750.png">
 </p>
 
-### Directory structure
+## Directory structure
 
+```
 ├── Asynchronous_FIFO.v
 ├── Asynchronous_FIFO_TB.sv
 ├── memory.v
@@ -46,7 +46,7 @@ An Asynchronous FIFO (First-In, First-Out) is a type of digital circuit used in 
 ├── synchronizer_rptr.v
 ├── synchronizer_wptr.v
 └── write_handler.v
-
+```
 
 - **README.md**- This markdown file has the project report.
 - **Asynchronous_FIFO.v**- This is the top module, This has instantiation of `memory.v` `read_handler.v` `synchronizer_rptr.v` `synchronizer_wptr.v` `write_handler.v`.
@@ -66,13 +66,47 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
   - FIFO empty
       `assign rempty_val = (rgraynext == rq2_wptr);`
 
-### Schematic diagram
+## FIFO Depth Calculation
+
+  Frequency of Write clock = 200 MHz
+  Frequency of Read clock = 50 MHz
+  Burst Size = 120
+
+  Time period of Write clock = 5 nsec
+  Time period of Read clock = 20 nsec
+
+  Time to send a burst = 120*5 = 600 nsec
+  Number of data that can be read in 600 nsec  = 600/20 = 30
+
+  Number of bytes need to store in FIFO = 120 - 30 = 90
+
+  FIFO Depth = 90
+
+## Schematic diagram
 <p align="center">
   <img src="Screenshot 2024-03-20 031804.png">
 </p>
 
-### Simulation Waveform-
+## Simulation Waveform-
 
 <p align="center">
-  <img src="Screenshot 2024-03-20 021412.png">
+  <img src="simulation.png">
+</p>
+
+### Section 1
+
+<p align="center">
+  <img src="Section 1.png">
+</p>
+
+### Section 2
+
+<p align="center">
+  <img src="Section 2.png">
+</p>
+
+### Section 3
+
+<p align="center">
+  <img src="Section 3.png">
 </p>
