@@ -1,5 +1,5 @@
 module write_Unit 
-#(parameter S = 12, Depth = 8'b1001_0110 )(
+#(parameter S = 8, Depth = 8'b1001_0110 )(
   input wr_clk,
   input wr_en,
   input wr_rst,
