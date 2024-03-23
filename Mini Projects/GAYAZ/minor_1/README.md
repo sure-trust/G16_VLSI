@@ -20,3 +20,14 @@ Getting started is just beginning of the hdl bits solutions.It teaches how to as
 
 It has basics of the verilog language like logic gates, vectors, modules, procedures,etc
 #### <i> Circuits</i>
+In this topic we write code mainly for circuits like combinational circuits and sequential circuits.
+In the combination circuits we will see the following circuits
+Basic Gates
+Multiplexers
+Arthmetic Circuits
+Karnaugh Map For Circuits 
+
+In the sequential circuits we will see the following circuits
+Latches and Filp Flops
+Counters
+Shift Registers
