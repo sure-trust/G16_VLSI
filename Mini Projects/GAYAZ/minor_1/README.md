@@ -5,7 +5,7 @@ HDLBits is a collection of small circuit design exercises for practicing digital
 
 Each problem requires you to design a small circuit in Verilog. HDLBits gives you immediate feedback on the circuit module you submit. Your circuit is checked for correctness by simulating with a set of test vectors and comparing it to our reference solution.
 
-# <i> topics
+# <i> Topics
 
 * Getting Started
 * Verilog Language 
