@@ -22,18 +22,11 @@ It has basics of the verilog language like logic gates, vectors, modules, proced
 #### <i> Circuits</i>
 In this topic we write code mainly for circuits like combinational circuits and sequential circuits.
 In the combination circuits we will see the following circuits
-
-Basic Gates
- 
-Multiplexers
-
-Arthmetic Circuits
-
-Karnaugh Map For Circuits 
-
+* Basic Gates 
+* Multiplexers
+* Arthmetic Circuits
+* Karnaugh Map For Circuits 
 In the sequential circuits we will see the following circuits
-
-Latches and Filp Flops
-
-Counters
-Shift Registers
+* Latches and Filp Flops
+* Counters
+* Shift Registers
