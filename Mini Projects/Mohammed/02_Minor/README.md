@@ -21,15 +21,14 @@ and also in verilog
 
 ### Files in this Submissions
 ```
-├── README.md
-├── Fifo_Top_Module.v
-├── Dual_flop_sync.v
-├── Binary2Gray.v
-├── Gray2Binary.v
-├── Fifo_Memory.v
-├── read_Unit.v
-├── write_Unit.v
-└── Fifo_Top_tb.v
+├── Readme.md
+├── async_fifo_TB.v
+├── asynchronous_fifo.v
+├── async_fifo_dump.vcd
+├── fifo_mem.v
+├── rptr_handler.v
+├── synchronizer.v
+└── wptr_handler.v
 ```
 
 # Introduction
