@@ -6,7 +6,7 @@ module Fifo_Top_tb();
     wire o_fifo_full, o_fifo_empty;
 
     // Instantiate the module under test
-    Fifo_Top_Module #(12) dut (
+    Fifo_Top_Module #(8) dut (
         .wr_clk(wr_clk),
         .rd_clk(rd_clk),
         .wr_rst(wr_rst),
