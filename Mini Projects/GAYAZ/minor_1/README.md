@@ -36,5 +36,4 @@ In the sequential circuits we will see the following circuits
 Latches and Filp Flops
 
 Counters
-
 Shift Registers
