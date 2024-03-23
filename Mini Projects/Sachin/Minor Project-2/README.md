@@ -15,6 +15,7 @@ b) WRITE INTERFACE:
 	wr_rst(active high)
 	
 c) READ INTERFACE:
+
 	rd_clk(200MHz)
 	rd_en(active high)
 	rd_data(8-bit data from receiver)
