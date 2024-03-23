@@ -1,6 +1,6 @@
 module Dual_flop_sync 
 //Set Parameter 
-#( parameter S = 12)(
+#( parameter S = 8)(
     input clk,
     input rst,
     input [S-1:0] data_in,

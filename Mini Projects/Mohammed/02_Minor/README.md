@@ -50,10 +50,6 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
   <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/7440b741-fe06-4e1e-850d-fef906336026" width="720px" Height="auto">
 </p>
 
-<p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/33cff1d2-3855-4f61-b1b2-9913485b480a" width="720px" Height="auto">
-</p>
-
 # Asynchronous FIFO Pointers
 
 #### Write Pointer:
@@ -101,11 +97,11 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 # OUTPUTS------
 
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/1bb412c6-e402-4f28-af5a-76c7e454f76a" width="720px" Height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/411fc3b5-4d33-4b3e-a40f-a448c8a59907)" width="720px" Height="auto">
 </p>
 
 # Simulation Waveform-----
 
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/ff635dc7-d3e4-482c-b39e-fa20c0310841" width="720px" Height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/2995bd0b-ef98-4757-a9a2-e0de241fe053" width="720px" Height="auto">
 </p>

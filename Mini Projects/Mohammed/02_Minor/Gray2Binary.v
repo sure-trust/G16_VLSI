@@ -1,5 +1,5 @@
 module Gray2Binary
-# (parameter S = 12) (
+# (parameter S = 8) (
 input [S-1:0] gray_in,
 output [S-1:0] binary_out
 );

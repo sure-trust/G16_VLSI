@@ -1,5 +1,5 @@
 module Fifo_Top_Module 
-#(parameter S = 12)(
+#(parameter S = 8)(
     input wr_clk,
     input rd_clk,
     input wr_rst,
@@ -40,7 +40,7 @@ write_Unit uutWrite_Unit(
     .wr_rst(wr_rst),
     .rd_ptr(rd_ptrG2B),
     .wr_ptr(wr_ptr),
-    .fifo_full(o_fifo_full)
+    .o_fifo_full(o_fifo_full)
 );
 
 read_Unit uutRead_Unit(
@@ -49,7 +49,7 @@ read_Unit uutRead_Unit(
     .rd_rst(rd_rst),
     .wr_ptr(wr_ptrG2B),
     .rd_ptr(rd_ptr),
-    .fifo_empty(o_fifo_empty)      
+    .o_fifo_empty(o_fifo_empty)      
 );
 
 Binary2Gray uutBinary2GrayWrite (

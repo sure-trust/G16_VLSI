@@ -1,6 +1,6 @@
 module Fifo_Memory
 //Set Fifo Depth 90 and Fifo Width 8 and Fifo Size = 90/8 = 12
-#(parameter S = 12, Depth = 8'b1001_0110)(
+#(parameter S = 8, Depth = 8'b1001_0110)(
         input wr_clk,
         input rd_clk,
         input [S-1:0] wr_ptr,
