@@ -18,9 +18,7 @@ Design specifications
   #FIFO status interface:
  1. o_fifo_full: goes high when FIFO is full. No more data writes are possible in that case.
  2. o_fifo_empty: goes high when FIFO is empty. No more data reads are possible in that case
- <p align = "center">
-  <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/01c95dd0-414e-4f83-aa22-3fe4a4df981b" width="720px" Height="auto">
-</p>
+ w
 <p align = "center">
   <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/40887562-0f2d-453a-9c24-c8ff856536ec" width="720px" Height="auto">
 </p>
