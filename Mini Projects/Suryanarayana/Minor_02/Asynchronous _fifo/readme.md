@@ -22,5 +22,5 @@ Design specifications
   <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/40887562-0f2d-453a-9c24-c8ff856536ec" width="720px" Height="auto">
 </p>
 <p align = "center">
-  <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/23eb942b-8ab0-41b3-a822-505a83f7823b" width="720px" Height="auto">
+  <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/7db5fe4c-a892-49c2-b16a-a75e7da721e8" width="720px" Height="auto">
 </p>
