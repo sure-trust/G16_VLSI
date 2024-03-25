@@ -28,8 +28,10 @@ Each problem requires you to design a small circuit in Verilog. HDLBits gives yo
       b3.Shift Registers
       b4.More Circuits
       b5.FSM
+      b6.Building larger circuits
 4.Verification
 
     a.finding bugs in code
     b.Writing testbenches
+    c.build a circuit from waveform
   
