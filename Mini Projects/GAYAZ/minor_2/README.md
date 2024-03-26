@@ -11,8 +11,8 @@ In this design all parts are desgin in different module. Here have two synchroni
 * Receiver B receives the data at 50MHz clock frequency.
 * No idle cycles between read and write are involved.
 
-####  <i>Input And Output Description
- |Ports|Description|
+####  Input And Output Description
+ |Signal |Description|
  |---|---|
  |wr_clk|Write clock|
  |rd_clk|Read clock|
@@ -23,7 +23,7 @@ In this design all parts are desgin in different module. Here have two synchroni
  |wr_data|Write Data Input to the FIFO|
  |rd_data|Read Data Output to the FIFO|
  |o_fifo_full|This signal is "1" when FIFO is full|
- |o_fifo_empty|This signal is "1" when FIFO is empty| </i>
+ |o_fifo_empty|This signal is "1" when FIFO is empty| 
 
 <i>
 <b>
