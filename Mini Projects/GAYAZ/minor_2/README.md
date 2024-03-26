@@ -10,7 +10,8 @@ In this design all parts are desgin in different module. Here have two synchroni
 * Transmitter A transmits data (burst of size 120), at 200MHz clock frequency.
 * Receiver B receives the data at 50MHz clock frequency.
 * No idle cycles between read and write are involved.
-#### Input And Output Description
+
+####  <i>Input And Output Description
  |Ports|Description|
  |---|---|
  |wr_clk|Write clock|
@@ -22,8 +23,7 @@ In this design all parts are desgin in different module. Here have two synchroni
  |wr_data|Write Data Input to the FIFO|
  |rd_data|Read Data Output to the FIFO|
  |o_fifo_full|This signal is "1" when FIFO is full|
- |o_fifo_empty|This signal is "1" when FIFO is empty|
- 
+ |o_fifo_empty|This signal is "1" when FIFO is empty| </i>
 
 <i>
 <b>
