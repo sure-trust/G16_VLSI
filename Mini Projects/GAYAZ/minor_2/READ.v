@@ -1,41 +1,41 @@
-module READ#(parameter S = 8, depth = S'b0101_1010)(
-        input rdclk,
-        input rden,
-        input rdrst,
-  		input [S-1:0] wrPtr,
-  		output [S-1:0]rdPtr,
-        output reg empty      
+module read#(parameter N = 8, depth = 8'b0101_1010)(
+        input rd_clk,
+        input rd_en,
+        input rd_rst,
+        input [N-1:0] wrPtr,
+        output [N-1:0]rdPtr,
+        output reg o_fifo_empty      
     );
     
+   
+    reg [N-1:0]counter;
     
-    reg [N-1:0]count;
-    
-  always @ (posedge rdclk or posedge rdrst)
+    always @ (posedge rd_clk or posedge rd_rst)
     begin
-      if (rdrst)
-            count <= 0;
-      else if (!rdrst && rden && !empty && (count[S-2:0] < depth-1))
+        if (rd_rst)
+            counter <= 0;
+        else if (!rd_rst && rd_en && !o_fifo_empty && (counter[N-2:0] < depth-1))
         begin
-          count[S-2:0] <= count[S-2:0] + 1;
-          count[S-1] <= count[S-1];
+            counter[N-2:0] <= counter[N-2:0] + 1;
+            counter[N-1] <= counter[N-1];
         end
-      else if(!rdrst && rden && !empty && (count[S-2:0] == depth-1))
+        else if (!rd_rst && rd_en && !o_fifo_empty && (counter[N-2:0] == depth-1))
         begin
-          count[S-2:0] <= 0;
-          count[S-1] <= ~count[S-1];
+            counter[N-2:0] <= 0;
+            counter[N-1] <= ~counter[N-1];
         end
         else
-            count <= count;
+            counter <= counter;
     end
     
     always @ (*)
     begin
-      if ((wrptr[S-1] == rdptr[S-1]) && (wrptr[S-2:0] == rdptr[S-2:0]))
-            empty = 1'b1;
+        if((wrPtr[N-1] == rdPtr[N-1]) && (wrPtr[N-2:0] == rdPtr[N-2:0]))
+            o_fifo_empty = 1'b1;
         else
-            empty = 1'b0;
+            o_fifo_empty = 1'b0;
     end
     
-    assign rdptr = count;
+    assign rdPtr = counter;
     
 endmodule

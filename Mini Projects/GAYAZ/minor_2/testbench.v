@@ -1,83 +1,102 @@
 module testbench();
 
-  reg wrclk, rdclk, wrrst, rdrst, wren, rden;
-  reg [7:0] wrdata;
-  wire [7:0] rddata;
-  wire full, empty;
+    reg wr_clk, rd_clk, wr_rst, rd_rst, wr_en, rd_en;
+  reg [7:0] wr_data;
+  wire [7:0] rd_data;
+  wire o_fifo_full;
+  wire o_fifo_empty;
 
     // Instantiate the module under test
-  ASYNC_FIFO #(8) dut (
-    .wrclk(wrclk),
-    .rdclk(rdclk),
-    .wrrst(wrrst),
-    .rdrst(rdrst),
-    .wrdata(wrdata),
-    .rddata(rddata),
-    .wren(wren),
-    .rden(rden),
-    .full(full),
-    .empty(empty)
+    ASYNC_FIFO#() dut (
+        .wr_clk(wr_clk),
+        .rd_clk(rd_clk),
+        .wr_rst(wr_rst),
+        .rd_rst(rd_rst),
+        .wr_data(wr_data),
+        .rd_data(rd_data),
+     	.wr_en( wr_en),
+        .rd_en(rd_en),
+        .o_fifo_full(o_fifo_full),
+        .o_fifo_empty(o_fifo_empty)
     );
+  
+   // Clock generation
+  initial begin
+    wr_clk = 1'b1;
+    forever #2.5 wr_clk = ~wr_clk;
+  end
+  // Clock generation
+  initial begin
+    rd_clk = 1'b1;
+    forever #10 rd_clk = ~rd_clk;
+  end
 
-    // Clock generation
-    always begin
-        wrclk = 1'b0;
-        #2; // Adjust delay based on your clock frequency
-        wrclk = 1'b1;
-        #2; // Adjust delay based on your clock frequency
-    end
-
-    always begin
-        rdclk = 1'b0;
-        #5; // Adjust delay based on your clock frequency
-        rdclk = 1'b1;
-        #5; // Adjust delay based on your clock frequency
-    end
-
-    initial begin
-        // Initialize/reset signals
-        wrrst = 1'b1;
-        rdrst = 1'b1;
-        wren = 1'b0;
-        rden = 1'b0;
-        wrdata = 8'h00;
-
-        // Release reset after some time
+  // Task: Continuous Write
+  task write_task;
+    begin
+      repeat (120) begin
+        wr_data = $random;
+        wr_en = 1'b1;
         #10;
-        wrrst = 1'b0;
-        rdrst = 1'b0;
+      end
+    end
+  endtask
 
-        // Test scenario
-        // Write some data into the FIFO
-        wren = 1'b1;
-        wrdata = 8'hA8;
-        #10;
-      	wrdata = 8'h08;
-        #10;
-        wrdata = 8'h68;
-        #10;
-        wrdata = 8'h54;
-        #10;
-        wren = 1'b0;
+  // Task: Continuous Read
+  task read_task;
+    begin
+      repeat (120) begin
+        rd_en = 1'b1;
+        wr_en = 1'b0;
+        #30;
+      end
+    end
+  endtask
 
-        // Read from the FIFO
-        rden = 1'b1;
-        #20;
-        rden = 1'b0;
-      	
+  // Task: Continuous Write and Read
+  task write_read_task;
+    begin
+      repeat (150) begin
+        wr_data = $random;
+        wr_en = 1'b1;
+        rd_en = 1'b1;
+        #5;
+      end
     end
-      initial begin
-        $monitor("full=%0d, empty=%0d, wrdata=%0d, rddata=%0d, wren=%0d,rden=%0d,",full,empty,wrdata,rddata,wren,rden);        		 
-    end
-    initial begin
-        $dumpfile ("dump.vcd");
-        $dumpvars ();
+  endtask
+
+  // Testbench stimulus
+  initial begin
+    wr_rst = 1'b1;
+    rd_rst = 1'b1;
+    wr_en = 1'b0;
+    rd_en = 1'b0;
+    wr_data = 8'h00;
+
+    // Reset
+    #7 wr_rst = 1'b0;
+    #10 rd_rst = 1'b0;
+
+    // Spawn tasks
+    fork
+      write_task();
+      #50
+      read_task();
+      #500
+      write_read_task();
+    join_none
+
+    // Stop simulation after certain time
+    #2000;
+    $finish;
+  end
+initial begin
+      $monitor("wr_clk=0%d,wr_data=0%d,rd_clk=0%d,rd_data=0%d,o_fifo_full=0%d,o_fifo_empty=0%d",wr_clk,wr_data,rd_clk,rd_data,o_fifo_full,o_fifo_empty);
     end
 
-		initial begin
-        // Add more test cases as needed...
-        // Finish simulation
-        #100 $finish;
-    end
+
+  initial begin 
+    $dumpfile("dump.vcd"); $dumpvars;
+  end
 
 endmodule

@@ -1,23 +1,23 @@
-module dualFlopSynchronizer#(parameter S = 8)(
-  input [S-1:0] dataIn,
-  output reg [S-1:0] dataOut,
+module dualFlopSync#(parameter N = 8)(
+    input [N-1:0] dataIn,
+    output reg [N-1:0] dataOut,
     input clk,
     input rst
     );
     
-  reg [S-1:0] meme;
+    reg [N-1:0] netFlop1to2;
     
     always @ (posedge clk or posedge rst)
     begin
         if (rst == 1'b1)
         begin
-            meme <= 0;
+            netFlop1to2 <= 0;
             dataOut <= 0;
         end
         else
         begin
-            meme <= dataIn;
-            dataOut <= meme;
+            netFlop1to2 <= dataIn;
+            dataOut <= netFlop1to2;
         end 
     end
 endmodule

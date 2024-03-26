@@ -155,13 +155,14 @@ Number of bytes need to store in FIFO = 120 - 30 = 90</br>
 
 
   # OUTPUT
-</i>
-<p align ="center">
-    <img src="https://github.com/GayazPatan/Images/assets/156210984/9af5f923-3acd-43e9-a562-fe62127b934d" width=720px height=auto />
-</p>    
+</i><p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/98eb252f-f15c-48c9-9a11-b789ac7eaf11" width="720px" height=auto />
+</p>
+
 <i>
 
   # SIMULATION WAVEFORM
 </i>
 <p align ="center">
-<img src="https://github.com/GayazPatan/Images/assets/156210984/2c8c221b-d20d-497c-b7f9-25a25ef88b99" width=720px height=auto />
+<img src="https://github.com/GayazPatan/Images/assets/156210984/3d316121-fa61-4d9b-9794-7b2075bbcdc0" width="720px" height=auto />
+</p>

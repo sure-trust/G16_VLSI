@@ -1,42 +1,42 @@
-module writeUnit #(parameter N = 16, depth = 8'b0101_1010_)(
-        input wrclk,
-        input wren,
-        input wrrst,
-  		input [S-1:0]rdPtr,
-  		output [S-1:0]wrPtr,
-        output reg full
+module write #(parameter N = 8, depth = 8'b1010_1010)(
+        input wr_clk,
+        input wr_en,
+        input wr_rst,
+        input [N-1:0] rdPtr,
+        output [N-1:0] wrPtr,
+        output reg o_fifo_full
     );
     
-    // Since we are designing a FIFO, we take an extra bit address full/empty functionality
+  
     
-  reg [S-1:0]count;
+    reg [N-1:0]counter;
     
-  always @ (posedge wrclk or posedge wrrst)
+    always @ (posedge wr_clk or posedge wr_rst)
     begin
-      if (wrrst)
-          count <= 0;
-      else if (!wrrst && wren && !full && (count[S-2:0] < depth-1))
+        if (wr_rst)
+            counter <= 0;
+        else if (!wr_rst && wr_en && !o_fifo_full && (counter[N-2:0] < depth-1))
         begin
-          count[S-2:0] <= count[S-2:0] + 1;
-          count[S-1] <= count[S-1];
+            counter[N-2:0] <= counter[N-2:0] + 1;
+            counter[N-1] <= counter[N-1];
         end
-      else if (!wrrst && wren && !full && (count[S-2:0] == depth-1))
+      else if (!wr_rst && wr_en && !o_fifo_full && (counter[N-2:0] == depth-1))
         begin
-          count[S-2:0] <= 0;
-          count[S-1] <= ~count[S-1];
+            counter[N-2:0] <= 0;
+            counter[N-1] <= ~counter[N-1];
         end
         else
-            count <= count;
+            counter <= counter;
     end
     
     always @ (*)
     begin
-      if ((wrptr[S-1] != rdptr[S-1]) && (wrptr[S-2:0] == rdptr[S-2:0]))
-            full = 1'b1;
+        if ((wrPtr[N-1] != rdPtr[N-1]) && (wrPtr[N-2:0] == rdPtr[N-2:0]))
+            o_fifo_full = 1'b1;
         else
-            full = 1'b0;
+            o_fifo_full = 1'b0;
     end
     
-    assign wrptr = count;
+    assign wrPtr = counter;
     
 endmodule

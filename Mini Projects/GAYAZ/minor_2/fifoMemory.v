@@ -1,28 +1,32 @@
-module fifoMemory#(parameter S = 8, depth = 8'b0101_1010)(
-  input wrclk,
-  input rdclk,
-  input [S-1:0] wrptr,
-  input [S-1:0] rdptr,
-  input wren,          
-  input [7:0] wrdata,
-  output reg [7:0] rddata
+module fifoMemory#(parameter N = 8, depth = 8'b0101_1010)(
+        input wr_clk,
+        input rd_clk,
+        input [N-1:0] wrPtr,
+        input [N-1:0] rdPtr,
+        input wr_en,
+        input rd_en,          
+  input [7:0] wr_data,
+  output reg [7:0] rd_data
     );
     
     // Declaring memory
-  reg [7:0] MEM [0:depth-1];
+    reg [7:0] RAM [0:depth-1];
     
     //
-  always @ (posedge wrclk)
+    always @ (posedge wr_clk)
     begin
-      if (wren)
-        MEM [wrptr] <= wrdata;
+        if (wr_en)
+            RAM [wrPtr] <= wr_data;
         else
-          MEM [wrptr] <= MEM [wrptr];
+            RAM [wrPtr] <= RAM[wrPtr];
     end
     
-  always @ (posedge rdclk)
+    always @ (posedge rd_clk)
     begin
-      rddata <= MEM[rdptr];
+      if(rd_en)
+          rd_data <= RAM[rdPtr];
+      else
+        rd_data<=rd_data;
     end
     
 endmodule
