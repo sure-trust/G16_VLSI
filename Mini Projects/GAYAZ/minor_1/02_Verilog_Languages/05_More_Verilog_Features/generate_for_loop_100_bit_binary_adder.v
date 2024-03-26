@@ -25,4 +25,5 @@ module top_module(
         one_bit_FA FA(a[i],b[i],cout[i-1],cout[i],sum[i]);
     end
     endgenerate
+    
 endmodule
