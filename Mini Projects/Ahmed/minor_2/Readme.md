@@ -119,7 +119,7 @@ This module deals with the updating of write pointer value and generate the fifo
 ## Simulation Waveform-
 
 <p align="center">
-  <img src="Simulation.png">
+  <img src="simulation.png">
 </p>
 
 **Explanation:**
