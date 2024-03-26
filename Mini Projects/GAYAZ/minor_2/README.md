@@ -127,6 +127,9 @@ Gray Code to Binary Converter:
 Converts Gray code back into binary format.
 Allows processing of Gray code data received by the FIFO.
 It involves logical XOR operations to decode Gray code inputs.
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/f4117608-6c28-4c2e-ab80-7c94b892a9a7" width="720px" height=auto />
+</p>
 
 <i>
 
