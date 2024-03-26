@@ -66,7 +66,7 @@ This module deals with the updating of read pointer value and generate the fifo 
 This module deals with the updating of write pointer value and generate the fifo full signal.
 
 <p align="center">
-  <img src="Write handler.png">
+  <img src="write handler.png">
 </p>
 
 
@@ -131,19 +131,18 @@ This module deals with the updating of write pointer value and generate the fifo
 When write enable signal goes high the FIFO starts writing the incoming data from input wr_data pin onto the memory until the memory got full.
 
 <p align="center">
-  <img src="Section 1.png">
+  <img src="Section_1.png">
 </p>
 
 ### Section 2
 When read enable signal goes high FIFO start reading the data stored in the memory through output pin until it got empty.
 
 <p align="center">
-  <img src="Section 2.png">
+  <img src="Section_2.png">
 </p>
 
 ### Section 3
 This section shows simultenous reading and writing of data as both the read and write enable signal goes high.
-
 <p align="center">
-  <img src="Section 3.png">
+  <img src="Section_3.png">
 </p>
