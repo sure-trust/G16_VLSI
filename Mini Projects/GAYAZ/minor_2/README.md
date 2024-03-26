@@ -8,9 +8,7 @@ In this design all parts are desgin in different module. Here have two synchroni
 # <i> Design Specifications</i>:
 
 * Transmitter A transmits data (burst of size 120), at 200MHz clock frequency.
-
 * Receiver B receives the data at 50MHz clock frequency.
-
 * No idle cycles between read and write are involved.
 
 <i>
