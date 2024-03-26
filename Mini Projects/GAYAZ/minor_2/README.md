@@ -179,6 +179,24 @@ Number of bytes need to store in FIFO = 120 - 30 = 90</br>
 
   # SIMULATION WAVEFORM
 </i>
+Case 1:
+After 90 Clock Cycle Fifo Full gets 1
+
 <p align ="center">
 <img src="https://github.com/GayazPatan/Images/assets/156210984/3d316121-fa61-4d9b-9794-7b2075bbcdc0" width="720px" height=auto />
+</p>
+
+case 2 :
+Similarly after 90 Clcok Cycles Fifo Empty gets 1
+
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/93a94178-2cd3-4ec9-a9ad-9407d4313d92" width="720px" height=auto />
+</p>
+
+
+Section 3
+This section shows simultenous reading and writing of data as both the read and write enable signal goes high.
+
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/514ccc6f-adeb-4b99-9505-bcf95f0813e2" width="720px" height=auto />
 </p>
