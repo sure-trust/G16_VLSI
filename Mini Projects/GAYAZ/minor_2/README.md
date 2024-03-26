@@ -155,9 +155,11 @@ Number of bytes need to store in FIFO = 120 - 30 = 90</br>
 
 
   # OUTPUT
-</i><p align ="center">
-<img src="https://github.com/GayazPatan/Images/assets/156210984/98eb252f-f15c-48c9-9a11-b789ac7eaf11" width="720px" height=auto />
+</i>
+<p align ="center">
+<img src="https://github.com/GayazPatan/Images/assets/156210984/af8f3954-9987-48a5-a67f-068cdfabf156" width="720px" height=auto />
 </p>
+
 
 <i>
 
