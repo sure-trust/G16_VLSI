@@ -21,7 +21,7 @@ In this design all parts are desgin in different module. Here have two synchroni
  |wr_rst|Write Reset|
  |rd_rst|Read Reset|
  |wr_data|Write Data  to the FIFO Memory|
- |rd_data|Read Data from to the FIFO Memory|
+ |rd_data|Read Data from  the FIFO Memory|
  |o_fifo_full|This signal is "1" when FIFO is full|
  |o_fifo_empty|This signal is "1" when FIFO is empty| 
 
