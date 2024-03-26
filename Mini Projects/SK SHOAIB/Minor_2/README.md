@@ -108,7 +108,19 @@ Design an asynchronous FIFO with the following specifications.
 # Waveforms
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/484e3fea-4ba6-471e-84cf-a6c0c2557836" width="400">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/25bd74ff-d3a3-4ae0-b90b-76104a62aae2" width="1000">
+</p> 
+
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/ad2e0a85-b903-4abe-b713-9212bc983de1" width="1000">
+</p>
+
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/b9d0e041-8abb-4507-99a8-ec8788424979" width="1000">
+</p>
+
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/e943bbfb-7242-4c12-adf2-a593ab273ffb" width="1000">
 </p>
 
 
