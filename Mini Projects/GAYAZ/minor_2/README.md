@@ -3,7 +3,6 @@
   # ASYNCHRONOUS FIFO
 </i>
 In this design all parts are desgin in different module. Here have two synchronizer module for write synchronizer and read synchronizer. one fifo module one top module one module for full condition and one empty condition. And the testbench is written in system verilog. and also in verilog
-<b>
 
 
 # <i> Design Specifications</i>:
@@ -15,6 +14,7 @@ In this design all parts are desgin in different module. Here have two synchroni
 * No idle cycles between read and write are involved.
 
 <i>
+<b>
 
 # CONTENTS
  * INTRODUCTION 
