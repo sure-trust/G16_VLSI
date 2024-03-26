@@ -27,8 +27,10 @@ Design an asynchronous FIFO with the following specifications.
 
 ### Reference Diagram
 
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/30dad3de-996e-47a7-bad7-e995c79ed501" width="400">
+</p>
 
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/3572739a-d07a-48fd-aa98-5f1836930251" alt="Refernce Diagram" style="width:50%" >
 
 ### Design Details:
 
@@ -50,29 +52,30 @@ Design an asynchronous FIFO with the following specifications.
 
 ### Assumed diagram
 
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/b1d6483f-3559-4d6b-8975-e52300ed9b40" alt="Assumed Diagram" style="width:50%" >
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/022f1615-222e-4db4-bbf7-07aa845d82fa" width="400">
+</p>
 
 ### Depth Calculation
 
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/f9376045-3d8c-4b9a-ac51-1b7393ae1685" alt="Depth Calculation" style="width:50%" >
-
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/1453c257-237f-4566-b0f8-24f4180ab6c8" width="400">
+</p>
 
 ### Assumed Architecture
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/55bb0e21-5b58-4048-a85b-f56f6e90a145" alt="Assumed Architecture" style="width:50%" >
+
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/fabfb151-6ead-4608-9eb4-01de945e9f7a" width="400">
+</p>
 
 
 # Introduction To Asynchronous Fifo
 - In asynchronous FIFO, data read and write operations use different clock frequencies. Since write and read clocks are not synchronized, it is referred to as asynchronous FIFO. Usually, these are used in systems where data need to pass from one clock domain to another which is generally termed as ‘clock domain crossing’. Thus, asynchronous FIFO helps to synchronize data flow between two systems working on different clocks.
 
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/19bc71ee-c600-4f30-be68-a04f799ff27e" width="400">
+</p>
 
-<style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/25b4c268-8df2-4220-931c-3b392e83081b" alt="image" style="width:50%">
 
 ## Operation:
 
@@ -80,7 +83,9 @@ img {
 
 ## Dual Flop Synchronizer:
 
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/5232d3a8-6391-4b2e-be3d-465458b0a522" alt="dff" style="width:50%">
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/7c603e0a-7822-402d-a61d-19d4b5565179" width="400">
+</p>
 
 
 
@@ -101,19 +106,35 @@ img {
 - These converters help ensure proper synchronization and reliable data transfer between asynchronous clock domains while minimizing the risk of metastability and timing violations. 
 
 # Waveforms
+## Case - 1
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/25bd74ff-d3a3-4ae0-b90b-76104a62aae2" width="800">
+</p> 
+<p align="center"><i>Figure -1</i></p>
 
-### First Part
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/d7ba7bef-1697-4d46-986e-0bb3ab6f72cf" alt="dff" style="width:50%">
+- Figure - 1 represents the reading and writing operations in the FIFO memory based on the clock and enable signals of read and write respectively
 
-### Second Part
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/38de83ef-95b7-4f51-8f82-66f8153ba4fc" alt="dff" style="width:50%">
+## Case - 2
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/ad2e0a85-b903-4abe-b713-9212bc983de1" width="800">
+</p>
+<p align="center"><i>Figure - 2</i></p>
 
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/b9d0e041-8abb-4507-99a8-ec8788424979" width="800">
+</p>
+<p align="center"><i>Figure - 3</i></p>
 
-### Full Waveforms
+- Figure - 2 and Figure - 3 represents the fifo_full signal oscillation due to simultaneous activation of read and write enable signals and as the fifo is full,we can't able to write the data into the memory which should be seen in Figure - 1
 
-<img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/2e502bd4-9e06-4d3a-8e2e-fac43d0ec533" alt="dff" style="width:50%">
+## Case - 3
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/e943bbfb-7242-4c12-adf2-a593ab273ffb" width="800">
+</p>
 
+<p align="center"><i>Figure - 4</i></p>
 
+- Figure - 4 represents the fifo empty and fifo full conditions and as the fifo_empty becomes high,we can't able to read the data as no data is present
 
 
 

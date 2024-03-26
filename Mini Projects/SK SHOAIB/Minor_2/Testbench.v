@@ -1,64 +1,106 @@
-module async_fifo_TestBench;
+`timescale 1us/1ps
 
-  parameter DATA_WIDTH = 8;
+module testbench();
 
-  wire [DATA_WIDTH-1:0] data_out;
-  wire fifo_full;
-  wire fifo_empty;
-  reg [DATA_WIDTH-1:0] data_in;
-  reg wr_en, wrclk, wrrst_n;
-  reg rd_en, rdclk, rdrst_n;
-  reg [DATA_WIDTH-1:0] wrdata_q[$], wrdata;
+    reg wrclk; 
+    reg rdclk; 
+    reg wrrst; 
+    reg rdrst; 
+    reg wren;
+    reg rden;  
+    reg [7:0] d_in; 
+    wire [7:0] d_out; 
+    wire fifo_full;   
+    wire fifo_empty;  
+
+    // Instantiate the module under test
+    asynchronous_fifo #() dut (
+        .wrclk(wrclk),
+        .rdclk(rdclk),
+        .wrrst(wrrst),
+        .rdrst(rdrst),
+        .d_in(d_in),
+        .d_out(d_out),
+        .wren(wren),
+        .rden(rden),
+      .fifo_full(fifo_full),
+        .fifo_empty(fifo_empty)
+    );
   
-  asynchronous_fifo a_fifo (wrclk, wrrst_n,rdclk, rdrst_n,wr_en,rd_en,data_in,data_out,fifo_full,fifo_empty);
-  always #10ns wrclk = ~wrclk;
-  always #35ns rdclk = ~rdclk;
+   // Write clock generation
   initial begin
-    wrclk = 1'b0; 
-    wrrst_n = 1'b0;
-    wr_en = 1'b0;
-    data_in = 0;
-    repeat(10) @(posedge wrclk);
-    wrrst_n = 1'b1;
-    repeat(2) begin
-      for (int i=0; i<30; i++) begin
-        @(posedge wrclk iff !fifo_full);
-        wr_en = (i%2 == 0)? 1'b1 : 1'b0;
-        if (wr_en) begin
-          data_in = $urandom;
-          wrdata_q.push_back(data_in);
-        end
-      end
-      #50;
-    end
+    wrclk = 1'b1;
+    forever #2.5 wrclk = ~wrclk; 
+  end
+  // Read clock generation
+  initial begin
+    rdclk = 1'b1;
+    forever #10 rdclk = ~rdclk; 
   end
 
-  initial begin
-    rdclk = 1'b0; 
-    rdrst_n = 1'b0;
-    rd_en = 1'b0;
-
-    repeat(20) @(posedge rdclk);
-    rdrst_n = 1'b1;
-
-    repeat(2) begin
-      for (int i=0; i<30; i++) begin
-        @(posedge rdclk iff !fifo_empty);
-        rd_en = (i%2 == 0)? 1'b1 : 1'b0;
-        if (rd_en) begin
-          wrdata = wrdata_q.pop_front();
-          if(data_out !== wrdata) $error("Time = %0t: Comparison Failed: expected wr_data = %h, rd_data = %h", $time, wrdata, data_out);
-          else $display("Time = %0t: Comparison Passed: wr_data = %h and rd_data = %h",$time, wrdata, data_out);
-        end
+  // Task: Continuous Write
+  task write_task;
+    begin
+      repeat (100) begin
+        d_in = $random;
+        wren = 1'b1; //Starting writing into FIFO
+        #5;
       end
-      #50;
     end
+  endtask
 
+  // Task: Continuous Read
+  task read_task;
+    begin
+      repeat (100) begin
+        rden = 1'b1;
+        wren = 1'b0;  // Disabling write operation
+        #20;
+      end
+    end
+  endtask
+
+  // Task: Continuous Write and Read
+  task write_read_task;
+    begin
+      repeat (150) begin
+        d_in = $random;
+        wren = 1'b1;
+        rden = 1'b1;
+        #10;
+      end
+    end
+  endtask
+
+  // Testbench stimulus
+  initial begin
+    wrrst = 1'b1;
+    rdrst = 1'b1;
+    wren = 1'b0;
+    rden = 1'b0;
+    d_in = 8'h0F;
+
+    // Reset signals
+    #5 wrrst = 1'b0;
+    #5 rdrst = 1'b0;
+
+    // Calling tasks
+    fork
+      write_task();
+      #500
+      read_task();
+      #2000
+      write_read_task();
+    join_none
+
+    // Stop simulation after certain time
+    #4000;
     $finish;
   end
-  
+
+
   initial begin 
-    $dumpfile("dump.vcd"); 
-    $dumpvars;
+    $dumpfile("dump.vcd"); $dumpvars;
   end
+
 endmodule
