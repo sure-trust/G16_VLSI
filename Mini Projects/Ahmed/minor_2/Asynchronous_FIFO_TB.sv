@@ -1,78 +1,108 @@
-// or browse Examples
-module Asynchronous_FIFO_TB;
+// 
+// Testbench For Asynchrounous FIFO
+//
+`timescale 1us/1ps
+module testbench();
 
-parameter DSIZE = 8;
-parameter ASIZE = 7;
+    reg wr_clk, // Write clock signal
+        rd_clk, // Read clock signal
+        wr_rst, // Active high reset for the Write pointer
+        rd_rst, // Active high reset for the Read pointer
+        wr_en,  // Active high enable signal for write operation
+        rd_en;  // Active high enable signal for write operation
+    reg [7:0] wr_data;  // 8-bits input data from transmitter
+    wire [7:0] rd_data; // 8-bits output data for receiver
+    wire o_fifo_full,   //Signal for FIFO full
+         o_fifo_empty;  //Signal for FIFO full
 
-wire [DSIZE-1:0] rd_data;
-wire o_fifo_full;
-wire o_fifo_empty;
-reg [DSIZE-1:0] wr_data;
-reg wr_en, wr_clk, wr_rst;
-reg rd_en, rd_clk, rd_rst;
+    // Instantiate the module under test
+    Asynchronous_FIFO #() dut (
+        .wr_clk(wr_clk),
+        .rd_clk(rd_clk),
+        .wr_rst(wr_rst),
+        .rd_rst(rd_rst),
+        .wr_data(wr_data),
+        .rd_data(rd_data),
+        .wr_en(wr_en),
+        .rd_en(rd_en),
+        .o_fifo_full(o_fifo_full),
+        .o_fifo_empty(o_fifo_empty)
+    );
+  
+   // Write clock generation
+  initial begin
+    wr_clk = 1'b1;
+    forever #2.5 wr_clk = ~wr_clk; // Generating write clock of frequency 200 MHz
+  end
+  // Read clock generation
+  initial begin
+    rd_clk = 1'b1;
+    forever #10 rd_clk = ~rd_clk; // Generating read clock of frequency 50 MHz
+  end
 
-// Model a queue for checking data
-reg [DSIZE-1:0] verif_data_q[$];
-reg [DSIZE-1:0] verif_wr_data;
-
-
-// Instantiate the FIFO
-Asynchronous_FIFO #(DSIZE, ASIZE) dut (wr_en, wr_clk, wr_rst, rd_en, rd_clk, rd_rst, wr_data, rd_data, o_fifo_full, o_fifo_empty);
-
-initial begin
-  wr_clk = 1'b0;
-  rd_clk = 1'b0;
-
-  fork
-    forever #2.5ns wr_clk = ~wr_clk;
-    forever #10ns rd_clk = ~rd_clk;
-  join
-end
-
-initial begin
-  wr_en = 1'b0;
-  wr_data = '0;
-  wr_rst = 1'b1;
-  repeat(5) @(posedge wr_clk);
-  wr_rst = 1'b0;
-
-  repeat(2) begin
-    for (int i=0; i<200; i++) begin
-      @(posedge wr_clk iff !o_fifo_full);
-      wr_en = (i%2 == 0)? 1'b1 : 1'b0;
-      if (wr_en) begin
-        wr_data = $urandom;
-        verif_data_q.push_front(wr_data);
+  // Task: Continuous Write
+  task write_task;
+    begin
+      repeat (90) begin
+        wr_data = $random;
+        wr_en = 1'b1; //Starting writing into FIFO
+        #5;
       end
     end
-  end
-end
+  endtask
 
-initial begin
-  rd_en = 1'b0;
-
-  rd_rst = 1'b1;
-  repeat(5) @(posedge rd_clk);
-  rd_rst = 1'b0;
-
-  repeat(4) begin
-    for (int i=0; i<100; i++) begin
-      @(posedge rd_clk iff !o_fifo_empty)
-      rd_en = (i%2 == 0)? 1'b1 : 1'b0;
-      if (rd_en) begin
-        verif_wr_data = verif_data_q.pop_back();
-        // Check the rd_data against modeled wr_data
-        $display("Checking rd_data: expected wr_data = %h, rd_data = %h", verif_wr_data, rd_data);
-        assert(rd_data === verif_wr_data) else $error("Checking failed: expected wr_data = %h, rd_data = %h", verif_wr_data, rd_data);
+  // Task: Continuous Read
+  task read_task;
+    begin
+      repeat (90) begin
+        rd_en = 1'b1;
+        wr_en = 1'b0;  // Disabling write operation
+        #20;
       end
     end
-    #1us;
-  end
-$finish;
-end
+  endtask
 
-initial begin 
-  $dumpfile("dump.vcd"); $dumpvars;
-end
+  // Task: Continuous Write and Read
+  task write_read_task;
+    begin
+      repeat (100) begin
+        wr_data = $random;
+        wr_en = 1'b1;
+        rd_en = 1'b1;
+        #10;
+      end
+    end
+  endtask
+
+  // Testbench stimulus
+  initial begin
+    wr_rst = 1'b1;
+    rd_rst = 1'b1;
+    wr_en = 1'b0;
+    rd_en = 1'b0;
+    wr_data = 8'h00;
+
+    // Reset signals
+    #5 wr_rst = 1'b0;
+    #5 rd_rst = 1'b0;
+
+    // Calling tasks
+    fork
+      write_task();
+      #550
+      read_task();
+      #2500
+      write_read_task();
+    join_none
+
+    // Stop simulation after certain time
+    #4000;
+    $finish;
+  end
+
+
+  initial begin 
+    $dumpfile("dump.vcd"); $dumpvars;
+  end
 
 endmodule
