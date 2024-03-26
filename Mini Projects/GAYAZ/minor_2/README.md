@@ -193,7 +193,7 @@ Similarly after 90 Clcok Cycles Fifo Empty gets 1
 <img src="https://github.com/GayazPatan/Images/assets/156210984/93a94178-2cd3-4ec9-a9ad-9407d4313d92" width="720px" height=auto />
 </p>
 
-Case 3
+Case 3 :
 This section shows simultenous reading and writing of data as both the read and write enable signal goes high.
 
 <p align ="center">
