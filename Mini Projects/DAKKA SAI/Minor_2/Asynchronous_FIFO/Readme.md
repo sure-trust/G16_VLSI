@@ -1,10 +1,9 @@
-# ASYNCHRONOUS FIFO
-
-In this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. One fifo module one top module one module for full condition and one empty condition.
-And the testbench is written in system verilog and also in verilog.
+# asynchronous_fifo
+in this design all parts are desgin in different module. Here have two sunchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
+And the testbench is written in system verilog.
+and also in verilog
 
 # Contents
-
 * Introduction 
 
 * FIFO structure
@@ -15,9 +14,7 @@ And the testbench is written in system verilog and also in verilog.
 
 * Synchronizers & Binary Gray Counter
 
-* Full & Empty Logic Block
-
-* Outputs
+* Full & Empty Logic Blocks
 
 * Simulation
 
@@ -38,7 +35,7 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 # Architecture
 
- ![image] https://user-images.githubusercontent.com/72481400/114535533-caa34c80-9c6d-11eb-8619-e6a7f10f8114.png
+![image](https://user-images.githubusercontent.com/72481400/114535533-caa34c80-9c6d-11eb-8619-e6a7f10f8114.png)
 
 
 # Asynchronous FIFO Pointers
@@ -85,21 +82,12 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 # Simulation waveform-
 
-<p align = "center">
-<img src= "https://user-images.githubusercontent.com/72481400/111078289-b0fdd080-851a-11eb-954f-7070e6de9af6"
-Width="720px" Height="auto">
 
-
+![image](https://user-images.githubusercontent.com/72481400/111078289-b0fdd080-851a-11eb-954f-7070e6de9af6.png)
 
 # Description
 
-* An asynchronous FIFO refers to a FIFO design where data values are written sequentially into a FIFO buffer using one clock domain, and the data values are sequentially read from the same FIFO buffer using another clock domain, where the two clock domains are asynchronous to each other.
-* Asynchronous FIFO design requires careful attention to details from pointer generation techniques to full and empty
-generation. Ignorance of important details will generally result in a design that is easily verified but is also wrong.
-* Finding FIFO design errors typically requires simulation of a gate-level FIFO design with backannotation of actual
-delays and a whole lot of luck!
-Synchronization of FIFO pointers into the opposite clock domain is safely accomplished using Gray code pointers.
-* Generating the FIFO-full status is perhaps the hardest part of a FIFO design. Dual n-bit Gray code counters are
-valuable to synchronize and n-bit pointer into the opposite clock domain and to use an (n-1)-bit pointer to do “full”
-comparison. Synchronizing binary FIFO pointers using techniques described in section 7.0 is another worthy
-technique to use when doing FIFO design.
+* An Asynchronous FIFO refers to a FIFO where the data values are written to the FIFO at a different rate and data values are read from the same FIFO at a different rate, both at the same time.The reason for calling it Asynchronous FIFO, is that the read and write clocks are not Synchronized.
+
+* Asynchronous FIFOs can isolate the signals from different clock domains and prevent them from propagating to the same logic domain. They can also buffer the data and smooth out any variations in the data rate or latency.
+
