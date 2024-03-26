@@ -22,5 +22,16 @@ Design specifications
   <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/40887562-0f2d-453a-9c24-c8ff856536ec" width="720px" Height="auto">
 </p>
 <p align = "center">
-  <img src="https://github.com/M-Suryanarayana/fifo/assets/156163346/7db5fe4c-a892-49c2-b16a-a75e7da721e8" width="720px" Height="auto">
+  <img src="https://github.com/M-Suryanarayana/fifo_asy/assets/156163346/e9fa55ee-11d9-421d-bab4-bd96ca093406" width="720px" Height="auto">
 </p>
+#design  
+wr_clk,rd_clk,wr_en,rd_en,wr_rst,rd_rst,wr_data------> inputs of the synchronous fifo  
+rd_data,fifo_Full,fifo_Empty-------> output ports of the asynchronous fifo  
+depth =90   
+#Mem   
+wr_ptr,rd_ptr------> are the pointers of size 8bit  
+Memory size = 90 depth & 8 width  
+#wrptr  
+fifo_Full condition --->(wr_ptr[7]!=rd_ptr[7]) & (wr_ptr[6:0]==rd_ptr[6:0])  
+#rdptr  
+fifo_Empty condition--->(wr_ptr[7] == rd_ptr[7]) & (wr_ptr[6:0] == rd_ptr[6:0])
