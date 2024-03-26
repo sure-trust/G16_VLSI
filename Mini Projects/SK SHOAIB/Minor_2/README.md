@@ -106,24 +106,35 @@ Design an asynchronous FIFO with the following specifications.
 - These converters help ensure proper synchronization and reliable data transfer between asynchronous clock domains while minimizing the risk of metastability and timing violations. 
 
 # Waveforms
-
+## Case - 1
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/25bd74ff-d3a3-4ae0-b90b-76104a62aae2" width="1000">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/25bd74ff-d3a3-4ae0-b90b-76104a62aae2" width="800">
 </p> 
+<p align="center"><i>Figure -1</i></p>
+
+- Figure - 1 represents the reading and writing operations in the FIFO memory based on the clock and enable signals of read and write respectively
+
+## Case - 2
+<p align="center">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/ad2e0a85-b903-4abe-b713-9212bc983de1" width="800">
+</p>
+<p align="center"><i>Figure - 2</i></p>
 
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/ad2e0a85-b903-4abe-b713-9212bc983de1" width="1000">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/b9d0e041-8abb-4507-99a8-ec8788424979" width="800">
 </p>
+<p align="center"><i>Figure - 3</i></p>
 
+- Figure - 2 and Figure - 3 represents the fifo_full signal oscillation due to simultaneous activation of read and write enable signals and as the fifo is full,we can't able to write the data into the memory which should be seen in Figure - 1
+
+## Case - 3
 <p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/b9d0e041-8abb-4507-99a8-ec8788424979" width="1000">
+  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/e943bbfb-7242-4c12-adf2-a593ab273ffb" width="800">
 </p>
 
-<p align="center">
-  <img src="https://github.com/ShoaibMalikSM/README-2-.md/assets/156204834/e943bbfb-7242-4c12-adf2-a593ab273ffb" width="1000">
-</p>
+<p align="center"><i>Figure - 4</i></p>
 
-
+- Figure - 4 represents the fifo empty and fifo full conditions and as the fifo_empty becomes high,we can't able to read the data as no data is present
 
 
 
