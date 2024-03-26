@@ -45,4 +45,5 @@ module top_module (
     assign done = (state==H);
     assign counting = (state==F | state == G);
     assign count = delay;
+
 endmodule

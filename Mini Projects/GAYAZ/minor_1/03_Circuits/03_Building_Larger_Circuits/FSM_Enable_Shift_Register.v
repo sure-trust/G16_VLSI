@@ -20,4 +20,5 @@ module top_module (
                 default: ns<=A;
             endcase
         end
+        
 endmodule

@@ -32,4 +32,5 @@ module top_module (
         end
     assign counting = (state == I);
     assign done = (state == DONE);
+    
 endmodule

@@ -11,4 +11,5 @@ module top_module (
            else if(count_ena == 1'b1) q1<=q1-4'd1;
         end
     assign q = q1;
+    
 endmodule

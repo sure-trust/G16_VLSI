@@ -24,4 +24,5 @@ module top_module(
     assign done = state[Wait];
     assign counting = state[Count];
     assign shift_ena = (state[B0] | state[B1] | state[B2] | state[B3]);
+
 endmodule

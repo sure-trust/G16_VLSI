@@ -8,4 +8,5 @@ module top_module (
             else if(q == 10'd999) q<=10'd0;
             else q<=q+10'd1;
         end
+        
 endmodule

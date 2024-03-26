@@ -22,4 +22,5 @@ module top_module (
             endcase
         end
     assign start_shifting = (state == E);
+    
 endmodule
