@@ -64,7 +64,7 @@ and also in verilog
     - o_fifo_empty: goes high when FIFO is empty. No more data reads are possible in that case.
 
   ####  Input And Output Description
-  
+
  |Signal |Description|
  |---|---|
  |wr_clk|Write clock|
@@ -101,7 +101,7 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
   
 # FIFO Structure
 <p align = "center">
-  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/dbcfb805-3cc7-4883-92c6-56e96ffca8d4" width="720px" Height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/9800e2ff-7a08-49a9-b2a2-7791a72a6817" width="720px" Height="auto">
 </p>
 
 # Architecture
@@ -114,25 +114,25 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 ## Schematic Diagram
 
 <p align = "center">
-  <img src="" width="720px" height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/c0d81b0a-4c21-4e7e-a9cf-3fc11f0ec3e4" width="720px" height="auto">
 </p>
 
 # Asynchronous FIFO Pointers
 
-#### Write Pointer:
+#### Write Unit:
 
 The write pointer always points to the next word to be written; therefore, on reset, both pointers are set to zero, which also happens to be the next FIFO word location to be written.
 
 <p align = "center">
-  <img src="" width="720px" height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/aaba887b-0fa3-4552-b86f-5f31c98b98c5" width="720px" height="auto">
 </p>
 
-#### Read Pointer:
+#### Read Unit:
 
 The read pointer always points to the current FIFO word to be read. The fact that the read pointer is always pointing to the next FIFO word to be read means that the receiver logic does not have to use two clock periods to read the data word.
 
 <p align = "center">
-  <img src="" width="720px" height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/d9747c71-4292-4e97-9ef1-10c6657df04e" width="720px" height="auto">
 </p>
 
 #  Dual Flop Synchronizers
@@ -144,7 +144,7 @@ The Figure below shows how synchronization takes place; the logic behind this is
 ### Synchroniser using two flip flop
 
 <p align = "center">
-  <img src="" width="720px" Height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/eddbec3b-f977-45f9-9581-0bb9f9bb319f" width="720px" Height="auto">
 </p>
    
 
@@ -154,14 +154,14 @@ _We need to design a counter which can give Binary and Gray output’s, the need
 A Binary to Gray code converter is a logical circuit that is used to convert the binary code into its equivalent Gray code.
 
 <p align="center">
-  <img src="" width="720px" height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/18768247-fc5d-4811-b444-bfae3d04c471" width="720px" height="auto">
 </p>
 
 ### Gray to Binary Converter
 A Gray to Binary Converter is a logical circuit that is used to convert the Gray code into its equivalent binary code.
 
 <p align="center">
-  <img src="" width="720px" height="auto">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/be2099f7-f972-4e46-99ee-2078f414cc07" width="720px" height="auto">
 </p>
 
 # Full & Empty Logic Block
@@ -181,7 +181,7 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 ## Simulation Waveform-------
 
 <p align="center">
-  <img src="">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/3b71ec66-688e-459e-887d-99ec47e182f6" width="720px" heigth="auto">
 </p>
 
 **Explanation:**
@@ -190,21 +190,27 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 - Section 3 : Both Read and Write Operation
 
 ### Section 1
-When write enable signal goes high the FIFO starts writing the incoming data from input wr_data pin onto the memory until the memory got full.
+
+##### Case 1:
+
+**_After 90 Clock Cycle Fifo Full gets 1_**
 
 <p align="center">
-  <img src="">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/4b3d6368-73ed-4374-abd1-1c5b75f3cafd">
 </p>
 
 ### Section 2
-When read enable signal goes high FIFO start reading the data stored in the memory through output pin until it got empty.
+ 
+ #### case 2 :
+
+**_Similarly after 90 Clcok Cycles Fifo Empty gets 1_**
 
 <p align="center">
-  <img src="">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/f5f9219e-d672-49fc-92e9-2378d7c03c01">
 </p>
 
 ### Section 3
 This section shows simultenous reading and writing of data as both the read and write enable signal goes high.
 <p align="center">
-  <img src="">
+  <img src="https://github.com/touheed1829/PROJECTS/assets/142418059/d94ba044-483c-40a9-9531-21db68f78cef">
 </p>
