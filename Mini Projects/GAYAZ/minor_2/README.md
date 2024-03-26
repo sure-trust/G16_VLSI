@@ -7,9 +7,9 @@ In this design all parts are desgin in different module. Here have two synchroni
 
 
 # <i> Design Specifications</i>:
-    Transmitter A transmits data (burst of size 120), at 200MHz clock frequency.
-    Receiver B receives the data at 50MHz clock frequency.
-    No idle cycles between read and write are involved.
+Transmitter A transmits data (burst of size 120), at 200MHz clock frequency.
+Receiver B receives the data at 50MHz clock frequency.
+No idle cycles between read and write are involved.
 
 <i>
 
@@ -142,6 +142,7 @@ Time to send a burst = 120*5 = 600 nsec
 Number of data that can be read in 600 nsec  = 600/20 = 30
 
 Number of bytes need to store in FIFO = 120 - 30 = 90
+</br>
 <b>
   FIFO Depth = 90
 </b>
