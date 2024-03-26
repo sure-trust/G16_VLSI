@@ -16,7 +16,6 @@ module top_module(
     genvar i;
     
     one_bit_FA FA1(a[0],b[0],cin,cout[0],sum[0]);
-    
     //this is a generte block
     //The loop generate construct provides an easy and concise method to create multiple instances 
     //of module items such as module instances, assign statements, assertions, interface instances 
