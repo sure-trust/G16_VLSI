@@ -2,11 +2,15 @@
 
   # ASYNCHRONOUS FIFO
 </i>
-
-In this design all parts are desgin in different module. Here have two synchronizer module for wrt synchronizer and read synchroniser. one fifo module one top module one module for full condition and one empty condition.
-And the testbench is written in system verilog.
-and also in verilog
+In this design all parts are desgin in different module. Here have two synchronizer module for write synchronizer and read synchronizer. one fifo module one top module one module for full condition and one empty condition. And the testbench is written in system verilog. and also in verilog
 <b>
+
+
+# <i> Design Specifications</i>:
+    Transmitter A transmits data (burst of size 120), at 200MHz clock frequency.
+    Receiver B receives the data at 50MHz clock frequency.
+    No idle cycles between read and write are involved.
+
 <i>
 
 # CONTENTS
@@ -123,12 +127,27 @@ Gray Code to Binary Converter:
 Converts Gray code back into binary format.
 Allows processing of Gray code data received by the FIFO.
 It involves logical XOR operations to decode Gray code inputs.
+
 <i>
 
-  #### Handshaking:
-</i>
-Handshaking ensures that both devices are synchronized and ready for data transfer, preventing data loss or corruption. It also allows for flow control, ensuring that data is not overwhelmed or lost due to differences in processing speeds or buffer capacities between devices. Handshaking is crucial in asynchronous communication, where devices may not share a common clock signal and operate independently.
+#### FIFO Depth Calculation</i>
+Frequency of Write clock = 200 MHz
+Frequency of Read clock = 50 MHz
+Burst Size = 120
+
+Time period of Write clock = 5 nsec
+Time period of Read clock = 20 nsec
+
+Time to send a burst = 120*5 = 600 nsec
+Number of data that can be read in 600 nsec  = 600/20 = 30
+
+Number of bytes need to store in FIFO = 120 - 30 = 90
+<b>
+  FIFO Depth = 90
+</b>
+
 <i>
+
 
   # OUTPUT
 </i>
