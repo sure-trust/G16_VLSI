@@ -86,9 +86,8 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 # Simulation waveform-
 
-<p align = "center">
-<img src= "(https://github.com/SaiRupadakka/fifo/assets/156314780/667ad454-b1c5-4330-86e8-db4ea7e6b623" width="720px"Height="auto">
-</p>
+
+image
 
 
 
