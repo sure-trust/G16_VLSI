@@ -36,8 +36,7 @@ One common technique for designing an asynchronous FIFO is to use Gray code poin
 
 # Architecture
 
-![image](https://user-images.githubusercontent.com/72481400/114535533-caa34c80-9c6d-11eb-8619-e6a7f10f8114.png)
-
+![alt text](IMG_20240323_104819.jpg)
 
 # Asynchronous FIFO Pointers
 
@@ -80,7 +79,9 @@ When the status counter reaches the maximum FIFO depth it will assert FIFO full 
 
 ![image](https://user-images.githubusercontent.com/72481400/114536217-7b115080-9c6e-11eb-90d2-5df89f42e764.png)
 
+# Simulation waveform
 
+![alt text](IMG_20240321_224424.png)
 
 # Description
 
